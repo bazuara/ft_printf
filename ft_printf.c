@@ -6,13 +6,12 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/06 21:56:38 by bazuara          ###   ########.fr       */
+/*   Updated: 2019/12/06 22:05:47 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_lib/libft.h"
 #include "ft_printf.h"
-#include <stdarg.h>
 
 char	*ft_print_variable(char *str, va_list args)
 {
