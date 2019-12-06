@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 15:42:46 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/06 22:11:10 by bazuara          ###   ########.fr       */
+/*   Updated: 2019/12/07 00:34:44 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,8 @@ typedef	struct	s_type
 	int is_mayhex;
 }				t_type;
 
+typedef struct	s_flags
+{
+	char	*flag_str;
+}
 #endif
