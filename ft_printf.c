@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/06 18:23:16 by bazuara          ###   ########.fr       */
+/*   Updated: 2019/12/06 19:14:28 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,28 @@
 
 char	*ft_print_variable(char *str, va_list args)
 {
-	char	*temp;
-	
-	temp = va_arg(args, char*);
-	ft_putstr_fd(temp, 1);
-	str++;
+	if (*str == 'i')
+	{
+		ft_putnbr_fd(va_arg(args, int), 1);
+		str++;
+	}
+	else if (*str == 'd')
+	{
+		ft_putnbr_fd(va_arg(args, int), 1);
+		str++;
+	}
+	else if (*str == 'c')
+	{
+		ft_putchar_fd(va_arg(args, char), 1);
+		str++;
+	}
+	else if (*str == 's')
+	{
+		ft_putstr_fd(va_arg(args, char *), 1);
+		str++;
+	}
 	return (str);
+
 }
 
 int	ft_printf(const char *str /*, ...*/)
