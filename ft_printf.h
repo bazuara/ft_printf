@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 15:42:46 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/06 15:50:47 by bazuara          ###   ########.fr       */
+/*   Updated: 2019/12/06 15:51:35 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 # define FT_PRINT_H
 
 # include <cstdarg.h>
-# include "ft_lib/libft.h"
 
 #endif
