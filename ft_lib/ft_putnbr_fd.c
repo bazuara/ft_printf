@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: bazuara <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/06 13:34:06 by bazuara          ###   ########.fr       */
+/*   Created: 2019/11/18 17:33:29 by bazuara           #+#    #+#             */
+/*   Updated: 2019/11/20 19:42:56 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_printf(const char * /*, ...*/)
+void	ft_putnbr_fd(int n, int fd)
 {
-	
+	char			temp;
+	unsigned int	c;
+
+	if (n < 0)
+	{
+		c = -n;
+		write(fd, "-", 1);
+	}
+	else
+		c = n;
+	if (c >= 10)
+	{
+		ft_putnbr_fd(c / 10, fd);
+	}
+	temp = (c % 10) + '0';
+	write(fd, &temp, 1);
 }

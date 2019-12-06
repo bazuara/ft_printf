@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: bazuara <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/06 13:34:06 by bazuara          ###   ########.fr       */
+/*   Created: 2019/11/13 11:19:28 by bazuara           #+#    #+#             */
+/*   Updated: 2019/11/14 18:20:10 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_printf(const char * /*, ...*/)
+void	*ft_calloc(size_t count, size_t size)
 {
-	
+	void	*pointer;
+
+	if (!(pointer = malloc(size * count)))
+		return (0);
+	ft_bzero(pointer, size * count);
+	return (pointer);
 }

@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: bazuara <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/06 13:34:06 by bazuara          ###   ########.fr       */
+/*   Created: 2019/11/18 17:19:37 by bazuara           #+#    #+#             */
+/*   Updated: 2019/11/18 18:22:57 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_printf(const char * /*, ...*/)
+void	ft_putstr_fd(char *s, int fd)
 {
-	
+	int	i;
+
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i] != '\0')
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
 }

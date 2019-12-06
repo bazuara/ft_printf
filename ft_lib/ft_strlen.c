@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: bazuara <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/06 13:34:06 by bazuara          ###   ########.fr       */
+/*   Created: 2019/11/04 12:01:38 by bazuara           #+#    #+#             */
+/*   Updated: 2019/11/08 16:58:48 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_printf(const char * /*, ...*/)
+size_t	ft_strlen(const char *s)
 {
-	
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }

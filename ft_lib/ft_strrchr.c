@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: bazuara <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/06 13:34:06 by bazuara          ###   ########.fr       */
+/*   Created: 2019/11/06 12:40:51 by bazuara           #+#    #+#             */
+/*   Updated: 2019/11/21 13:31:39 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_printf(const char * /*, ...*/)
+char	*ft_strrchr(const char *s, int c)
 {
-	
+	int i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	while (i >= 0)
+	{
+		if (s[i] == c)
+			return ((char *)&s[i]);
+		i--;
+	}
+	return (0);
 }
