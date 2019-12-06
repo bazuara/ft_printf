@@ -6,11 +6,12 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/06 15:46:56 by bazuara          ###   ########.fr       */
+/*   Updated: 2019/12/06 15:50:44 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "ft_lib/libft.h"
 
 int	ft_printf(const char *str /*, ...*/)
 {
