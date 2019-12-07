@@ -6,11 +6,11 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/06 22:05:47 by bazuara          ###   ########.fr       */
+/*   Updated: 2019/12/07 03:13:45 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_lib/libft.h"
+#include "libft.h"
 #include "ft_printf.h"
 
 char	*ft_print_variable(char *str, va_list args)
@@ -23,11 +23,6 @@ char	*ft_print_variable(char *str, va_list args)
 	else if (*str == '%')
 	{
 		ft_putchar_fd('%', 1);
-		str++;
-	}
-	else if (*str == 'd')
-	{
-		ft_putnbr_fd(va_arg(args, int), 1);
 		str++;
 	}
 	else if (*str == 'c')
@@ -43,7 +38,7 @@ char	*ft_print_variable(char *str, va_list args)
 	return (str);
 }
 
-int		ft_printf(const char *str , ...)
+int		ft_printf(const char *str, ...)
 {
 	va_list	args;
 
@@ -52,7 +47,7 @@ int		ft_printf(const char *str , ...)
 	{
 		ft_putchar_fd(*str, 1);
 		str++;
-		if(*str == '%')
+		if (*str == '%')
 		{
 			str++;
 			str = ft_print_variable((char *)str, args);

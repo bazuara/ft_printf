@@ -3,16 +3,17 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bazuara <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/11/05 11:45:30 by bazuara           #+#    #+#              #
-#    Updated: 2019/11/25 13:41:03 by bazuara          ###   ########.fr        #
+#    Created: 2019/12/07 03:11:01 by bazuara           #+#    #+#              #
+#    Updated: 2019/12/07 03:18:15 by bazuara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+
 NAME = libft
 
-LNAME = libft.a
+LNAME = libftprintf.a
 
 SOURCE = ft_atoi.c ft_isalpha.c ft_itoa.c ft_memcpy.c  ft_putendl_fd.c \
 		 ft_strchr.c  ft_strlcat.c ft_strncmp.c ft_substr.c ft_bzero.c \
@@ -20,7 +21,8 @@ SOURCE = ft_atoi.c ft_isalpha.c ft_itoa.c ft_memcpy.c  ft_putendl_fd.c \
 		 ft_strlcpy.c ft_strnstr.c ft_tolower.c ft_calloc.c  ft_isdigit.c \
 		 ft_memchr.c  ft_memset.c  ft_putstr_fd.c  ft_strdup.c  ft_strlen.c \
 		 ft_strrchr.c ft_toupper.c ft_isalnum.c ft_isprint.c ft_memcmp.c \
-		 ft_putchar_fd.c ft_split.c   ft_strjoin.c ft_strmapi.c ft_strtrim.c
+		 ft_putchar_fd.c ft_split.c   ft_strjoin.c ft_strmapi.c ft_strtrim.c \
+		 ft_printf.c
 
 LSOURCE = $(SOURCE:.c=.o)
 
@@ -53,6 +55,7 @@ clean:
 
 fclean:
 	@rm -f $(LNAME)
+	@rm -f $(LSOURCE) $(LBONUSSRC)
 	@echo "Removed '$(LNAME)' with success"${RESET}
 
 re: fclean all
