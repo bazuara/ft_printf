@@ -6,7 +6,7 @@
 #    By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/07 03:11:01 by bazuara           #+#    #+#              #
-#    Updated: 2019/12/08 11:55:37 by bazuara          ###   ########.fr        #
+#    Updated: 2019/12/08 12:03:26 by bazuara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,21 +74,21 @@ all: $(NAME)
 
 # Rule to build your object files and link them into a binary
 $(NAME):
-	gcc $(CFLAGS) $(LFLAGS) $(SOURCE) $(LIBSOURCE)
-	mv -f *.o src/lib
-	ar rc $(LNAME) $(OBJFOLDER)$(OBJ) $(LIBOBJ)
-	ranlib $(LNAME)
+	@gcc $(CFLAGS) $(LFLAGS) $(SOURCE) $(LIBSOURCE)
+	@mv -f *.o src/lib
+	@ar rc $(LNAME) $(OBJFOLDER)$(OBJ) $(LIBOBJ)
+	@ranlib $(LNAME)
 	echo "Compiled '$(NAME)' successfully"${RESET}
 
 # Rule to remove object files
 clean:
-	rm -f $(LIBOBJ) $(LBONUSSRC)
-	echo "Cleaned objects successfully"${RESET}
+	@rm -f $(LIBOBJ) $(LBONUSSRC) $(OBJFOLDER)$(OBJ) #solo va a borrar el primer archivo, luego petara, FIXIT
+	@echo "Cleaned objects successfully"${RESET}
 
 # Rule to remove binary, calls the 'clean' rule first
 fclean: clean
-	rm -f $(LNAME)
-	echo "Removed '$(LNAME)' with success"${RESET}
+	@rm -f $(LNAME)
+	@echo "Removed '$(LNAME)' with success"${RESET}
 
 # Rule to remove object files and binary, then re-build everything
 re: fclean all
