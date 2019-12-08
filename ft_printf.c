@@ -6,14 +6,14 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/08 15:11:47 by bazuara          ###   ########.fr       */
+/*   Updated: 2019/12/08 18:15:57 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "src/lib/libft.h"
 #include "ft_printf.h"
 
-char	*ft_print_variable(char *str, va_list args)
+char	*ft_print_variable(char *str, va_list args, int *count)
 {
 	if (*str == 'i')
 	{
@@ -23,16 +23,19 @@ char	*ft_print_variable(char *str, va_list args)
 	else if (*str == '%')
 	{
 		ft_putchar_fd('%', 1);
+		count++;
 		str++;
 	}
 	else if (*str == 'c')
 	{
 		ft_putchar_fd(va_arg(args, int), 1);
+		count++;
 		str++;
 	}
 	else if (*str == 's')
 	{
 		ft_putstr_fd(va_arg(args, char *), 1);
+		count++;
 		str++;
 	}
 	return (str);
@@ -41,18 +44,21 @@ char	*ft_print_variable(char *str, va_list args)
 int		ft_printf(const char *str, ...)
 {
 	va_list	args;
+	int		count;
 
+	count = 0;
 	va_start(args, str);
 	while (str && *str != '\0')
 	{
 		ft_putchar_fd(*str, 1);
 		str++;
+		count++;
 		if (*str == '%')
 		{
 			str++;
-			str = ft_print_variable((char *)str, args);
+			str = ft_print_variable((char *)str, args, &count);
 		}
 	}
 	va_end(args);
-	return (0);
+	return (count);
 }
