@@ -6,14 +6,14 @@
 #    By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/07 03:11:01 by bazuara           #+#    #+#              #
-#    Updated: 2019/12/08 10:51:56 by bazuara          ###   ########.fr        #
+#    Updated: 2019/12/08 11:03:40 by bazuara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = libft
 
-LNAME = src/lib/libft.a
+LNAME = libftprintf.a
 
 LIBSOURCE = src/lib/ft_atoi.c src/lib/ft_isalpha.c src/lib/ft_itoa.c \
 		 src/lib/ft_memcpy.c  src/lib/ft_putendl_fd.c \
@@ -43,26 +43,25 @@ LFLAGS = -c
 
 all: $(NAME)
 
+# Rule to build your object files and link them into a binary
 $(NAME):
-	@gcc $(CFLAGS) $(LFLAGS) $(SOURCE)
-	@ar rc $(LNAME) $(LSOURCE)
-	@ranlib $(LNAME)
-	@echo "Compiled '$(NAME)' successfully"${RESET}
+	gcc $(CFLAGS) $(LFLAGS) $(SOURCE)
+	ar rc $(LNAME) $(LSOURCE)
+	ranlib $(LNAME)
+	echo "Compiled '$(NAME)' successfully"${RESET}
 
-bonus: 
-	gcc $(CFLAGS) $(LFLAGS) $(BONUSSRC)
-	ar rcs $(LNAME) $(LBONUSSRC)
-	@echo "Compiled '$(NAME)' with bonus successfully"${RESET}
-
+# Rule to remove object files
 clean:
 	@rm -f $(LSOURCE) $(LBONUSSRC)
 	@echo "Cleaned objects successfully"${RESET}
 
-fclean:
+# Rule to remove binary, calls the 'clean' rule first
+fclean: clean
 	@rm -f $(LNAME)
-	@rm -f $(LSOURCE) $(LBONUSSRC)
 	@echo "Removed '$(LNAME)' with success"${RESET}
 
+# Rule to remove object files and binary, then re-build everything
 re: fclean all
 
-.PHONY: clean fclean
+# Rules that are not linked with a filename should be listed here
+.PHONY: all clean fclean re
