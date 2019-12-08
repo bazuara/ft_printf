@@ -6,7 +6,7 @@
 #    By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/07 03:11:01 by bazuara           #+#    #+#              #
-#    Updated: 2019/12/08 12:03:26 by bazuara          ###   ########.fr        #
+#    Updated: 2019/12/08 15:20:51 by bazuara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,15 +74,16 @@ all: $(NAME)
 
 # Rule to build your object files and link them into a binary
 $(NAME):
-	@gcc $(CFLAGS) $(LFLAGS) $(SOURCE) $(LIBSOURCE)
+	@gcc $(CFLAGS) $(LFLAGS) $(LIBSOURCE)
 	@mv -f *.o src/lib
-	@ar rc $(LNAME) $(OBJFOLDER)$(OBJ) $(LIBOBJ)
+	@gcc $(CFLAGS) $(LFLAGS) $(SOURCE)
+	@ar rc $(LNAME) $(OBJ) $(LIBOBJ)
 	@ranlib $(LNAME)
 	echo "Compiled '$(NAME)' successfully"${RESET}
 
 # Rule to remove object files
 clean:
-	@rm -f $(LIBOBJ) $(LBONUSSRC) $(OBJFOLDER)$(OBJ) #solo va a borrar el primer archivo, luego petara, FIXIT
+	@rm -f $(LIBOBJ) $(LBONUSSRC) $(OBJ)
 	@echo "Cleaned objects successfully"${RESET}
 
 # Rule to remove binary, calls the 'clean' rule first
