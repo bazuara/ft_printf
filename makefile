@@ -6,7 +6,7 @@
 #    By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/07 03:11:01 by bazuara           #+#    #+#              #
-#    Updated: 2019/12/08 11:03:40 by bazuara          ###   ########.fr        #
+#    Updated: 2019/12/08 11:08:24 by bazuara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,8 @@
 NAME = libft
 
 LNAME = libftprintf.a
+
+SOURCE = ft_printf.c
 
 LIBSOURCE = src/lib/ft_atoi.c src/lib/ft_isalpha.c src/lib/ft_itoa.c \
 		 src/lib/ft_memcpy.c  src/lib/ft_putendl_fd.c \
@@ -29,11 +31,13 @@ LIBSOURCE = src/lib/ft_atoi.c src/lib/ft_isalpha.c src/lib/ft_itoa.c \
 		 src/lib/ft_isprint.c src/lib/ft_memcmp.c \
 		 src/lib/ft_putchar_fd.c src/lib/ft_split.c   src/lib/ft_strjoin.c \
 		 src/lib/ft_strmapi.c src/lib/ft_strtrim.c \
-		 src/lib/ft_printf.c src/lib/ft_lstiter_bonus.c\
+		 src/lib/ft_lstiter_bonus.c\
 		 src/lib/ft_lstmap_bonus.c src/lib/ft_lstsize_bonus.c \
 		 src/lib/ft_lstadd_front_bonus.c\
 		 src/lib/ft_lstdelone_bonus.c src/lib/ft_lstlast_bonus.c \
 		 src/lib/ft_lstnew_bonus.c
+
+OBJ = $(SOURCE:.c=.o)
 
 LIBOBJ = $(LIBSOURCE:.c=.o)
 
@@ -45,8 +49,8 @@ all: $(NAME)
 
 # Rule to build your object files and link them into a binary
 $(NAME):
-	gcc $(CFLAGS) $(LFLAGS) $(SOURCE)
-	ar rc $(LNAME) $(LSOURCE)
+	gcc $(CFLAGS) $(LFLAGS) $(SOURCE) $(LIBSOURCE)
+	ar rc $(LNAME) $(OBJ) $(LIBOBJ)
 	ranlib $(LNAME)
 	echo "Compiled '$(NAME)' successfully"${RESET}
 
