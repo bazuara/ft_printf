@@ -6,11 +6,11 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/08 11:56:44 by bazuara          ###   ########.fr       */
+/*   Updated: 2019/12/08 11:57:41 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/lib/src/libft.h"
+#include "src/lib/libft.h"
 #include "ft_printf.h"
 
 char	*ft_print_variable(char *str, va_list args)
