@@ -6,7 +6,7 @@
 #    By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/07 03:11:01 by bazuara           #+#    #+#              #
-#    Updated: 2019/12/08 11:52:28 by bazuara          ###   ########.fr        #
+#    Updated: 2019/12/08 11:55:37 by bazuara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,13 +82,13 @@ $(NAME):
 
 # Rule to remove object files
 clean:
-	@rm -f $(LSOURCE) $(LBONUSSRC)
-	@echo "Cleaned objects successfully"${RESET}
+	rm -f $(LIBOBJ) $(LBONUSSRC)
+	echo "Cleaned objects successfully"${RESET}
 
 # Rule to remove binary, calls the 'clean' rule first
 fclean: clean
-	@rm -f $(LNAME)
-	@echo "Removed '$(LNAME)' with success"${RESET}
+	rm -f $(LNAME)
+	echo "Removed '$(LNAME)' with success"${RESET}
 
 # Rule to remove object files and binary, then re-build everything
 re: fclean all
