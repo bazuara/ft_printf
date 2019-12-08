@@ -6,7 +6,7 @@
 #    By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/07 03:11:01 by bazuara           #+#    #+#              #
-#    Updated: 2019/12/08 11:34:29 by bazuara          ###   ########.fr        #
+#    Updated: 2019/12/08 11:52:28 by bazuara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ NAME = libft
 LNAME = libftprintf.a
 
 SOURCE = ft_printf.c
+
+OBJFOLDER = src/lib/
 
 LIBSOURCE = src/lib/ft_atoi.c \
 			src/lib/ft_isalpha.c \
@@ -73,7 +75,8 @@ all: $(NAME)
 # Rule to build your object files and link them into a binary
 $(NAME):
 	gcc $(CFLAGS) $(LFLAGS) $(SOURCE) $(LIBSOURCE)
-	ar rc $(LNAME) $(OBJ) $(LIBOBJ)
+	mv -f *.o src/lib
+	ar rc $(LNAME) $(OBJFOLDER)$(OBJ) $(LIBOBJ)
 	ranlib $(LNAME)
 	echo "Compiled '$(NAME)' successfully"${RESET}
 
