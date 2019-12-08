@@ -6,7 +6,7 @@
 #    By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/07 03:11:01 by bazuara           #+#    #+#              #
-#    Updated: 2019/12/08 11:08:24 by bazuara          ###   ########.fr        #
+#    Updated: 2019/12/08 11:28:40 by bazuara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,25 +17,48 @@ LNAME = libftprintf.a
 
 SOURCE = ft_printf.c
 
-LIBSOURCE = src/lib/ft_atoi.c src/lib/ft_isalpha.c src/lib/ft_itoa.c \
-		 src/lib/ft_memcpy.c  src/lib/ft_putendl_fd.c \
-		 src/lib/ft_strchr.c src/lib/ft_strlcat.c src/lib/ft_strncmp.c \
-		 src/lib/ft_substr.c src/lib/ft_bzero.c \
-		 src/lib/ft_isascii.c src/lib/ft_memccpy.c src/lib/ft_memmove.c \
-		 src/lib/ft_putnbr_fd.c  src/lib/ft_strcmp.c \
-		 src/lib/ft_strlcpy.c src/lib/ft_strnstr.c src/lib/ft_tolower.c \
-		 src/lib/ft_calloc.c  src/lib/ft_isdigit.c \
-		 src/lib/ft_memchr.c  src/lib/ft_memset.c  src/lib/ft_putstr_fd.c  \
-		 src/lib/ft_strdup.c  src/lib/ft_strlen.c \
-		 src/lib/ft_strrchr.c src/lib/ft_toupper.c src/lib/ft_isalnum.c \
-		 src/lib/ft_isprint.c src/lib/ft_memcmp.c \
-		 src/lib/ft_putchar_fd.c src/lib/ft_split.c   src/lib/ft_strjoin.c \
-		 src/lib/ft_strmapi.c src/lib/ft_strtrim.c \
-		 src/lib/ft_lstiter_bonus.c\
-		 src/lib/ft_lstmap_bonus.c src/lib/ft_lstsize_bonus.c \
-		 src/lib/ft_lstadd_front_bonus.c\
-		 src/lib/ft_lstdelone_bonus.c src/lib/ft_lstlast_bonus.c \
-		 src/lib/ft_lstnew_bonus.c
+LIBSOURCE = src/lib/atoi.c \
+			src/lib/isalpha.c \
+			src/lib/itoa.c \
+			src/lib/memcpy.c \
+			src/lib/putendl_fd.c \
+			src/lib/strchr.c \
+			src/lib/strlcat.c \
+			src/lib/strncmp.c \
+			src/lib/substr.c \
+			src/lib/bzero.c \
+			src/lib/isascii.c \
+			src/lib/memccpy.c \
+			src/lib/memmove.c \
+			src/lib/putnbr_fd.c \
+			src/lib/strcmp.c \
+			src/lib/strlcpy.c \
+			src/lib/strnstr.c \
+			src/lib/tolower.c \
+			src/lib/calloc.c \
+			src/lib/isdigit.c \
+			src/lib/memchr.c \
+			src/lib/memset.c\
+			src/lib/putstr_fd.c \
+			src/lib/strdup.c \
+			src/lib/strlen.c \
+			src/lib/strrchr.c \
+			src/lib/toupper.c \
+			src/lib/isalnum.c \
+			src/lib/isprint.c \
+			src/lib/memcmp.c \
+			src/lib/putchar_fd.c \
+			src/lib/split.c \
+			src/lib/strjoin.c \
+			src/lib/strmapi.c \
+			src/lib/strtrim.c \
+			src/lib/lstiter_bonus.c\
+			src/lib/lstmap_bonus.c \
+			src/lib/lstsize_bonus.c \
+			src/lib/lstadd_front_bonus.c\
+			src/lib/lstdelone_bonus.c \
+			src/lib/lstlast_bonus.c \
+			src/lib/lstnew_bonus.c
 
 OBJ = $(SOURCE:.c=.o)
 
