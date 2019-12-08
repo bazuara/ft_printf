@@ -6,7 +6,7 @@
 #    By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/07 03:11:01 by bazuara           #+#    #+#              #
-#    Updated: 2019/12/08 15:26:21 by bazuara          ###   ########.fr        #
+#    Updated: 2019/12/08 15:49:21 by bazuara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME = libft
 
 LNAME = libftprintf.a
 
-SOURCE = ft_printf.c
+SOURCE = ft_printf.c \
+		 ft_strnjoin.c
 
 OBJFOLDER = src/lib/
 

@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 15:42:46 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/07 02:34:38 by bazuara          ###   ########.fr       */
+/*   Updated: 2019/12/08 15:48:03 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,6 @@ typedef struct	s_flags
 {
 	char	*flag_str;
 }				t_flags;
+
+char	*ft_strnjoin(char const *s1, char const *s2, size_t n);
 #endif
