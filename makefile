@@ -6,31 +6,36 @@
 #    By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/07 03:11:01 by bazuara           #+#    #+#              #
-#    Updated: 2019/12/07 03:18:15 by bazuara          ###   ########.fr        #
+#    Updated: 2019/12/08 10:51:56 by bazuara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = libft
 
-LNAME = libftprintf.a
+LNAME = src/lib/libft.a
 
-SOURCE = ft_atoi.c ft_isalpha.c ft_itoa.c ft_memcpy.c  ft_putendl_fd.c \
-		 ft_strchr.c  ft_strlcat.c ft_strncmp.c ft_substr.c ft_bzero.c \
-		 ft_isascii.c ft_memccpy.c ft_memmove.c ft_putnbr_fd.c  ft_strcmp.c \
-		 ft_strlcpy.c ft_strnstr.c ft_tolower.c ft_calloc.c  ft_isdigit.c \
-		 ft_memchr.c  ft_memset.c  ft_putstr_fd.c  ft_strdup.c  ft_strlen.c \
-		 ft_strrchr.c ft_toupper.c ft_isalnum.c ft_isprint.c ft_memcmp.c \
-		 ft_putchar_fd.c ft_split.c   ft_strjoin.c ft_strmapi.c ft_strtrim.c \
-		 ft_printf.c
+LIBSOURCE = src/lib/ft_atoi.c src/lib/ft_isalpha.c src/lib/ft_itoa.c \
+		 src/lib/ft_memcpy.c  src/lib/ft_putendl_fd.c \
+		 src/lib/ft_strchr.c src/lib/ft_strlcat.c src/lib/ft_strncmp.c \
+		 src/lib/ft_substr.c src/lib/ft_bzero.c \
+		 src/lib/ft_isascii.c src/lib/ft_memccpy.c src/lib/ft_memmove.c \
+		 src/lib/ft_putnbr_fd.c  src/lib/ft_strcmp.c \
+		 src/lib/ft_strlcpy.c src/lib/ft_strnstr.c src/lib/ft_tolower.c \
+		 src/lib/ft_calloc.c  src/lib/ft_isdigit.c \
+		 src/lib/ft_memchr.c  src/lib/ft_memset.c  src/lib/ft_putstr_fd.c  \
+		 src/lib/ft_strdup.c  src/lib/ft_strlen.c \
+		 src/lib/ft_strrchr.c src/lib/ft_toupper.c src/lib/ft_isalnum.c \
+		 src/lib/ft_isprint.c src/lib/ft_memcmp.c \
+		 src/lib/ft_putchar_fd.c src/lib/ft_split.c   src/lib/ft_strjoin.c \
+		 src/lib/ft_strmapi.c src/lib/ft_strtrim.c \
+		 src/lib/ft_printf.c src/lib/ft_lstiter_bonus.c\
+		 src/lib/ft_lstmap_bonus.c src/lib/ft_lstsize_bonus.c \
+		 src/lib/ft_lstadd_front_bonus.c\
+		 src/lib/ft_lstdelone_bonus.c src/lib/ft_lstlast_bonus.c \
+		 src/lib/ft_lstnew_bonus.c
 
-LSOURCE = $(SOURCE:.c=.o)
-
-BONUSSRC = ft_lstadd_back_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c\
-		   ft_lstmap_bonus.c ft_lstsize_bonus.c ft_lstadd_front_bonus.c\
-		   ft_lstdelone_bonus.c ft_lstlast_bonus.c ft_lstnew_bonus.c 
-
-LBONUSSRC = $(BONUSSRC:.c=.o)
+LIBOBJ = $(LIBSOURCE:.c=.o)
 
 CFLAGS = -Wall -Wextra -Werror
 
