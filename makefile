@@ -6,7 +6,7 @@
 #    By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/07 03:11:01 by bazuara           #+#    #+#              #
-#    Updated: 2019/12/08 11:28:40 by bazuara          ###   ########.fr        #
+#    Updated: 2019/12/08 11:29:52 by bazuara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,9 @@ NAME = libft
 
 LNAME = libftprintf.a
 
-SOURCE = ft_printf.c
+SOURCE = ./ft_printf.c
 
-LIBSOURCE = src/lib/atoi.c \
+LIBSOURCE = ./src/lib/atoi.c \
 			src/lib/isalpha.c \
 			src/lib/itoa.c \
 			src/lib/memcpy.c \
