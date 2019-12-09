@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 15:42:46 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/09 12:23:44 by bazuara          ###   ########.fr       */
+/*   Updated: 2019/12/09 13:25:21 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 
 typedef	struct	s_flags
 {
-	int is_minus;
-	int is_plus;
-	int is_space;
-	int	is_zero;
-	int	is_hash;
+	int			is_minus;
+	int			is_plus;
+	int			is_space;
+	int			is_zero;
+	int			is_hash;
 }				t_flags;
 
-char	*ft_strnjoin(char const *s1, char const *s2, size_t n);
-char	*ft_checkflags(char *str, int *count, t_flags *flags);
+char			*ft_strnjoin(char const *s1, char const *s2, size_t n);
+char			*ft_checkflags(char *str, int *count, t_flags *flags);
 
 #endif
