@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/09 13:19:50 by bazuara          ###   ########.fr       */
+/*   Updated: 2019/12/09 14:03:08 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,14 @@ char	*ft_print_variable(char *str, va_list args, int *count)
 	return (str);
 }
 
+int		ft_isflag(char *str)
+{
+	if (*str == '-' || *str == '+' || *str == ' ' ||
+		*str == '0' || *str == '#')
+		return (1);
+	return (0);
+}
+
 int		ft_printf(const char *str, ...)
 {
 	va_list	args;
@@ -54,7 +62,8 @@ int		ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			str = ft_checkflags((char *)str, &count, &flags);
+			while (ft_isflag((char *)str) == 1)
+				str = ft_checkflags((char *)str, &count, &flags);
 			str = ft_print_variable((char *)str, args, &count);
 		}
 		else
