@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 11:49:01 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/09 13:23:00 by bazuara          ###   ########.fr       */
+/*   Updated: 2019/12/09 15:36:08 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_checkflags(char *str, int *count, t_flags *flags)
 	{
 		flags->is_space = 1;
 		str++;
-		(*count)++;
+		//(*count)++;
 	}
 	else if (*str == '0')
 	{
