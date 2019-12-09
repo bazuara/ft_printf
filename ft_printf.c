@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/09 11:45:54 by bazuara          ###   ########.fr       */
+/*   Updated: 2019/12/09 12:27:16 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int		ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int		count;
+	t_flags	flags;
 
 	count = 0;
 	va_start(args, str);
@@ -56,6 +57,7 @@ int		ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
+			str = ft_checkflags((char *)str, &count, &flags);
 			str = ft_print_variable((char *)str, args, &count);
 		}
 	}
