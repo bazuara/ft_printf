@@ -6,27 +6,17 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/09 15:27:50 by bazuara          ###   ########.fr       */
+/*   Updated: 2019/12/09 15:52:42 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "src/lib/libft.h"
 #include "ft_printf.h"
 
 char	*ft_print_variable(char *str, va_list args, int *count, t_flags *flags)
 {
 	if (*str == 'i')
-	{ 
-		int i;
-
-		i = va_arg(args, int);
-		if (flags->is_plus == 1 && i >= 0)
-		{
-			ft_putchar_fd('+', 1);
-			(*count)++;
-		}
-        ft_putnbr_fd(i, 1);
-        str++;
+	{
+		str = ft_printint(str, args, &count, &flags);
 	}
 	else if (*str == '%')
 	{
