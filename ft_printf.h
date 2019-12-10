@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 15:42:46 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/09 15:50:56 by bazuara          ###   ########.fr       */
+/*   Updated: 2019/12/10 12:08:07 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,12 @@ typedef	struct	s_flags
 	int			is_space;
 	int			is_zero;
 	int			is_hash;
+    int         is_num;
+    int         width;
 }				t_flags;
 
 char			*ft_strnjoin(char const *s1, char const *s2, size_t n);
-char			*ft_checkflags(char *str, int *count, t_flags *flags);
-char			*ft_printint(char *str,va_list args, int **count, t_flags **flags);
+const char		*ft_checkflags(const char *str, int *count, t_flags *flags);
+const char			*ft_printint(const char *str,va_list args, int **count, t_flags **flags);
 
 #endif

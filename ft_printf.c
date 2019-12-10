@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/09 15:52:42 by bazuara          ###   ########.fr       */
+/*   Updated: 2019/12/10 12:09:46 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_print_variable(char *str, va_list args, int *count, t_flags *flags)
 {
 	if (*str == 'i')
 	{
-		str = ft_printint(str, args, &count, &flags);
+		str = (char *)ft_printint(str, args, &count, &flags);
 	}
 	else if (*str == '%')
 	{
@@ -61,7 +61,7 @@ int		ft_printf(const char *str, ...)
 		{
 			str++;
 			while (ft_isflag((char *)str) == 1)
-				str = ft_checkflags((char *)str, &count, &flags);
+				str = (char *)ft_checkflags((char *)str, &count, &flags);
 			str = ft_print_variable((char *)str, args, &count, &flags);
 		}
 		else
