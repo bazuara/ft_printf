@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 11:49:01 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/10 12:06:57 by bazuara          ###   ########.fr       */
+/*   Updated: 2019/12/11 11:50:43 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,6 @@ const char		*ft_checkflags(const char *str, int *count, t_flags *flags)
 	else if (*str == '0')
 	{
 		flags->is_zero = 1;
-		str++;
-		(*count)++;
-	}
-	else if (*str == '#')
-	{
-		flags->is_hash = 1;
 		str++;
 		(*count)++;
 	}
