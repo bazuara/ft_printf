@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 15:37:39 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/11 11:50:23 by bazuara          ###   ########.fr       */
+/*   Updated: 2019/12/11 12:04:57 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ const char	*ft_printint(const char *str,va_list args, int **count, t_flags **fla
 	}
 	//itoa y prepend num de espacios
 	//ft_itoa(str)
-	//ft_putnbr_fd(i, 1);
-	//str++;
+	ft_putnbr_fd(i, 1);
+	str++;
 	return (str);
 }

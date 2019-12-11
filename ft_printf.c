@@ -6,11 +6,22 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/10 12:09:46 by bazuara          ###   ########.fr       */
+/*   Updated: 2019/12/11 12:33:14 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static void print_struct(t_flags *flags)
+{
+	printf("-----DEBBUG------");
+	printf("is_minus: %i \n", flags->is_minus);
+	printf("is_plus: %i \n", flags->is_plus);
+	printf("is_space: %i \n", flags->is_space);
+	printf("is_zero: %i \n", flags->is_zero);
+	printf("is_num: %i \n", flags->is_num);
+	printf("width: %i \n", flags->width);
+}
 
 char	*ft_print_variable(char *str, va_list args, int *count, t_flags *flags)
 {
@@ -62,6 +73,7 @@ int		ft_printf(const char *str, ...)
 			str++;
 			while (ft_isflag((char *)str) == 1)
 				str = (char *)ft_checkflags((char *)str, &count, &flags);
+			print_struct(&flags);
 			str = ft_print_variable((char *)str, args, &count, &flags);
 		}
 		else
