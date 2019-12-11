@@ -6,7 +6,7 @@
 #    By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/07 03:11:01 by bazuara           #+#    #+#              #
-#    Updated: 2019/12/09 15:45:02 by bazuara          ###   ########.fr        #
+#    Updated: 2019/12/11 13:01:32 by bazuara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,7 +84,7 @@ $(NAME):
 
 # Rule to remove object files
 clean:
-	@rm -f $(LIBOBJ) $(LBONUSSRC) $(OBJ)
+	@rm -f $(LIBOBJ) $(LBONUSSRC) $(OBJ) $(LIBOBJ) src/lib/*.o
 	@echo "Cleaned objects successfully"${RESET}
 
 # Rule to remove binary, calls the 'clean' rule first
