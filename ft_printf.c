@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/17 10:52:20 by bazuara          ###   ########.fr       */
+/*   Updated: 2019/12/17 11:27:49 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ static void print_struct(t_flags *flags)
 	printf("pos: %i \n", flags->pos);
 }
 
-char	*ft_print_variable(char *str, va_list args, int *count, t_flags *flags)
+char	*ft_print_variable(char *str, va_list args, t_flags *flags)
 {
 	if (str[flags->pos] == 'i')
 	{
-		str = (char *)ft_printint(str, args, &count, &flags);
+		str = (char *)ft_printint(str, args, &flags);
 	}
 	else if (*str == '%')
 	{
@@ -39,13 +39,13 @@ char	*ft_print_variable(char *str, va_list args, int *count, t_flags *flags)
 	else if (*str == 'c')
 	{
 		ft_putchar_fd(va_arg(args, int), 1);
-		(*count)++;
+		flags->pos++;
 		str++;
 	}
 	else if (*str == 's')
 	{
 		ft_putstr_fd(va_arg(args, char *), 1);
-		(*count)++;
+		flags->pos++;
 		str++;
 	}
 	return (str);
@@ -62,13 +62,12 @@ int		ft_isflag(char *str)
 int		ft_printf(const char *str, ...)
 {
 	va_list	args;
-	int		count;
 	t_flags	flags;
 
 	int debug;
 	debug = 0;
 
-	count = 0;
+	flags.pos = 0;
 	va_start(args, str);
 	while (str && *str != '\0')
 	{
@@ -76,18 +75,18 @@ int		ft_printf(const char *str, ...)
 		{
 			str++;
 			while (ft_isflag((char *)str) == 1)
-				str = (char *)ft_checkflags((char *)str, &count, &flags);
+				str = (char *)ft_checkflags((char *)str, &flags);
 			if (debug == 1)
 				print_struct(&flags);
-			str = ft_print_variable((char *)str, args, &count, &flags);
+			str = ft_print_variable((char *)str, args, &flags);
 		}
 		else
 		{
 			ft_putchar_fd(*str, 1);
 			str++;
-			count++;
+			flags.pos++;
 		}
 	}
 	va_end(args);
-	return (count);
+	return (flags.pos);
 }
