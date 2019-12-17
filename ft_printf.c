@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/11 13:05:52 by bazuara          ###   ########.fr       */
+/*   Updated: 2019/12/17 10:52:20 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,19 @@ static void print_struct(t_flags *flags)
 	printf("is_zero: %i \n", flags->is_zero);
 	printf("is_num: %i \n", flags->is_num);
 	printf("width: %i \n", flags->width);
+	printf("pos: %i \n", flags->pos);
 }
 
 char	*ft_print_variable(char *str, va_list args, int *count, t_flags *flags)
 {
-	if (*str == 'i')
+	if (str[flags->pos] == 'i')
 	{
 		str = (char *)ft_printint(str, args, &count, &flags);
 	}
 	else if (*str == '%')
 	{
 		ft_putchar_fd('%', 1);
-		(*count)++;
+		flags->pos++;
 		str++;
 	}
 	else if (*str == 'c')
