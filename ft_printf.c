@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/17 15:21:23 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/01/07 16:37:59 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 static void print_struct(t_flags *flags)
 {
-	printf("-----DEBBUG------");
+	printf("\n");
+	printf("-----DEBBUG------\n");
 	printf("is_minus: %i \n", flags->is_minus);
 	printf("is_plus: %i \n", flags->is_plus);
 	printf("is_space: %i \n", flags->is_space);
@@ -65,7 +66,7 @@ int		ft_printf(const char *str, ...)
 	t_flags	flags;
 
 	int debug;
-	debug = 0;
+	debug = 1;
 
 	count = 0;
 	va_start(args, str);
