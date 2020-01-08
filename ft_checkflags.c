@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 11:49:01 by bazuara           #+#    #+#             */
-/*   Updated: 2019/12/11 13:25:00 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/01/08 12:18:53 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,18 @@ const char		*ft_checkflags(const char *str, int *count, t_flags *flags)
 		str++;
 		//(*count)++;
 	}
+	else if (*str == '.')
+	{
+		flags->is_point = 1;
+		str++;
+		(*count)++;
+		if (ft_isdigit(*str) == 1 && (*str != '0'))
+		{
+			flags->decimals = ft_atoi(str);
+			(*count) = (*count) + (ft_atoi(str));
+			str += ft_intlen(ft_atoi(str));
+		}
+	}
 	if (*str == '0')
 	{
 		flags->is_zero = 1;
@@ -52,6 +64,7 @@ const char		*ft_checkflags(const char *str, int *count, t_flags *flags)
 		flags->is_num = 1;
 		flags->width = ft_atoi(str);
 		(*count) = (*count) + (ft_atoi(str));
+		//printf("longitud del int %i", (ft_intlen(ft_atoi(str))));
 		str += ft_intlen(ft_atoi(str));
 	}
 	return (str);
