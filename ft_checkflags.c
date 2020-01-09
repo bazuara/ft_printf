@@ -6,14 +6,14 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 11:49:01 by bazuara           #+#    #+#             */
-/*   Updated: 2020/01/08 12:18:53 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/01/08 15:46:06 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "src/lib/libft.h"
 #include "ft_printf.h"
 
-static int	ft_intlen(unsigned int n)
+int	ft_intlen(unsigned int n)
 {
 	if (n < 10)
 		return (1);

@@ -2,9 +2,11 @@
 #include <stdio.h>
 
 int main(void) {
+	int res;
 //           printf("sys: ");
 //	       printf("test, %.i", 5); printf("\n");
 		   ft_printf("ft_: ");
-		   ft_printf("test %-20.5s", "stringtest"); ft_printf("\n");
+		   res = ft_printf("test %i", 135); 
+		   printf("res: %i", res);
   return 0;
 }
