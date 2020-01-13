@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2020/01/08 16:00:54 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/01/13 12:23:53 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,9 @@ static void initialize_struct(t_flags *flags)
 char	*ft_print_variable(char *str, va_list args, int *count, t_flags *flags)
 {
 	if (*str == 'i')
-	{
 		str = (char *)ft_printint(str, args, &count, &flags);
-	}
 	else if (*str == '%')
-	{
-			ft_putchar_fd('%', 1);
-			(*count)++;
-			str++;
-	}
+		str = ft_printsymbol(str, &count);
 	else if (*str == 'c')
 	{
 		ft_putchar_fd(va_arg(args, int), 1);

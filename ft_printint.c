@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 15:37:39 by bazuara           #+#    #+#             */
-/*   Updated: 2020/01/08 15:44:17 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/01/13 12:05:09 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,20 @@
 const char	*ft_printint(const char *str,va_list args, int **count, t_flags **flags)
 {
 	int i;
+	int t;
 
+	t = 0;
 	i = va_arg(args, int);
-	if ((*flags)->is_minus == 1)
+	if ((*flags)->width > 0)
 	{
-		//Gestionar espacios a derecha e izquierda
-
+		//Gestionar espacios a izquierda
+		printf("\nDebug: width %i \n", (*flags)->width);
+		printf("Debug: intlen %i \n", ft_intlen(i));
+		while (t < ((*flags)->width - ft_intlen(i)))
+		{
+				ft_putchar_fd(' ', 1);
+				t++;
+		}
 	}
 	if ((*flags)->is_plus == 1 && i >= 0)
 	{
