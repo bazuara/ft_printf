@@ -6,14 +6,14 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 11:49:01 by bazuara           #+#    #+#             */
-/*   Updated: 2020/01/08 15:46:06 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/01/13 13:37:06 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "src/lib/libft.h"
 #include "ft_printf.h"
 
-int	ft_intlen(unsigned int n)
+int				ft_intlen(unsigned int n)
 {
 	if (n < 10)
 		return (1);
@@ -39,7 +39,7 @@ const char		*ft_checkflags(const char *str, int *count, t_flags *flags)
 	{
 		flags->is_space = 1;
 		str++;
-		//(*count)++;
+		(*count)++;
 	}
 	else if (*str == '.')
 	{
@@ -64,7 +64,6 @@ const char		*ft_checkflags(const char *str, int *count, t_flags *flags)
 		flags->is_num = 1;
 		flags->width = ft_atoi(str);
 		(*count) = (*count) + (ft_atoi(str));
-		//printf("longitud del int %i", (ft_intlen(ft_atoi(str))));
 		str += ft_intlen(ft_atoi(str));
 	}
 	return (str);

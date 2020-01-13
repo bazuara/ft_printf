@@ -6,13 +6,13 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2020/01/13 12:23:53 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/01/13 13:52:48 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void print_struct(t_flags *flags)
+static void	print_struct(t_flags *flags)
 {
 	printf("\n");
 	printf("-----DEBBUG------\n");
@@ -26,7 +26,7 @@ static void print_struct(t_flags *flags)
 	printf("width: %i \n", flags->width);
 }
 
-static void initialize_struct(t_flags *flags)
+static void	initialize_struct(t_flags *flags)
 {
 	flags->is_minus = 0;
 	flags->is_plus = 0;
@@ -38,7 +38,8 @@ static void initialize_struct(t_flags *flags)
 	flags->width = 0;
 }
 
-char	*ft_print_variable(char *str, va_list args, int *count, t_flags *flags)
+char		*ft_print_variable(char *str, va_list args, int *count,
+		t_flags *flags)
 {
 	if (*str == 'i')
 		str = (char *)ft_printint(str, args, &count, &flags);
@@ -59,24 +60,23 @@ char	*ft_print_variable(char *str, va_list args, int *count, t_flags *flags)
 	return (str);
 }
 
-int		ft_isflag(char *str)
+int			ft_isflag(char *str)
 {
 	if (*str == '-' || *str == '+' || *str == ' ' ||
-		 (*str >= '0' & *str <='9')|| *str == '#' || 
-		 *str == '.')
+		(*str >= '0' & *str <= '9') || *str == '#' ||
+		*str == '.')
 		return (1);
 	return (0);
 }
 
-int		ft_printf(const char *str, ...)
+int			ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int		count;
 	t_flags	flags;
+	int		debug;
 
-	int debug;
 	debug = 0;
-	
 	count = 0;
 	initialize_struct(&flags);
 	va_start(args, str);
