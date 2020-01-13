@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 11:49:01 by bazuara           #+#    #+#             */
-/*   Updated: 2020/01/13 13:37:06 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/01/13 16:26:00 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,33 +23,34 @@ int				ft_intlen(unsigned int n)
 
 const char		*ft_checkflags(const char *str, int *count, t_flags *flags)
 {
+	(void)(*count);
 	if (*str == '-')
 	{
 		flags->is_minus = 1;
 		str++;
-		(*count)++;
+		//(*count)++;
 	}
 	else if (*str == '+')
 	{
 		flags->is_plus = 1;
 		str++;
-		(*count)++;
+		//(*count)++;
 	}
 	else if (*str == ' ')
 	{
 		flags->is_space = 1;
 		str++;
-		(*count)++;
+		//(*count)++;
 	}
 	else if (*str == '.')
 	{
 		flags->is_point = 1;
 		str++;
-		(*count)++;
+		//(*count)++;
 		if (ft_isdigit(*str) == 1 && (*str != '0'))
 		{
 			flags->decimals = ft_atoi(str);
-			(*count) = (*count) + (ft_atoi(str));
+			//(*count) = (*count) + (ft_atoi(str));
 			str += ft_intlen(ft_atoi(str));
 		}
 	}
@@ -57,13 +58,13 @@ const char		*ft_checkflags(const char *str, int *count, t_flags *flags)
 	{
 		flags->is_zero = 1;
 		str++;
-		(*count)++;
+		//(*count)++;
 	}
 	else if (ft_isdigit(*str) == 1 && (*str != '0'))
 	{
 		flags->is_num = 1;
 		flags->width = ft_atoi(str);
-		(*count) = (*count) + (ft_atoi(str));
+		//(*count) = (*count) + (ft_atoi(str));
 		str += ft_intlen(ft_atoi(str));
 	}
 	return (str);
