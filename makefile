@@ -6,7 +6,7 @@
 #    By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/07 03:11:01 by bazuara           #+#    #+#              #
-#    Updated: 2020/01/14 11:23:18 by bazuara          ###   ########.fr        #
+#    Updated: 2020/01/14 12:08:45 by bazuara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ SOURCE = ft_printf.c \
 		 ft_checkflags.c \
 		 ft_printint.c \
 		 ft_printsymbol.c \
-		 ft_printstring.c
+		 ft_printstring.c \
+		 ft_preandpos.c
 OBJFOLDER = src/lib/
 
 LIBSOURCE = src/lib/ft_atoi.c \
