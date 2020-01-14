@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printint.c                                      :+:      :+:    :+:   */
+/*   ft_printstring.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/09 15:37:39 by bazuara           #+#    #+#             */
-/*   Updated: 2020/01/14 11:33:13 by bazuara          ###   ########.fr       */
+/*   Created: 2020/01/14 11:05:30 by bazuara           #+#    #+#             */
+/*   Updated: 2020/01/14 11:34:00 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-const char	*ft_printint(const char *str, va_list args, int **count,
+const char	*ft_printstring(const char *str, va_list args, int **count,
 		t_flags **flags)
 {
-	int 	i;
-	size_t	t;
+	char	*c;
+	size_t 	t;
 
 	t = 0;
-	i = va_arg(args, int);
+	c = va_arg(args, char*);
 	if ((*flags)->is_minus == 0 && (*flags)->width > 0)
-		while (t < ((*flags)->width - ft_intlen(i)))
+		while (t < ((*flags)->width - ft_strlen(c)))
 		{
 			ft_putchar_fd((((*flags)->is_zero == 1) ? '0' : ' '), 1);
 			(*(*count))++;
 			t++;
 		}
-	if ((*flags)->is_plus == 1 && i >= 0)
-	{
-		ft_putchar_fd('+', 1);
-		(*(*count))++;
-	}
-	ft_putnbr_fd(i, 1);
-	(*(*count)) += ft_intlen(i);
+	ft_putstr_fd(c, 1);
+	(*(*count)) += ft_strlen(c);
 	str++;
 	if ((*flags)->is_minus == 1 && (*flags)->width > 0)
-		while (t < ((*flags)->width - ft_intlen(i)))
+		while (t < ((*flags)->width - ft_strlen(c)))
 		{
 			ft_putchar_fd((((*flags)->is_zero == 1) ? '0' : ' '), 1);
 			(*(*count))++;

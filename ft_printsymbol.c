@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 12:12:09 by bazuara           #+#    #+#             */
-/*   Updated: 2020/01/13 17:05:23 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/01/14 11:33:38 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 const char	*ft_printsymbol(const char *str, t_flags **flags, int **count)
 {
-	int	t;
+	size_t	t;
 
 	t = 0;
 	if ((*flags)->is_minus == 0 && (*flags)->width > 0)

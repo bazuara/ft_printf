@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 15:42:46 by bazuara           #+#    #+#             */
-/*   Updated: 2020/01/13 14:16:52 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/01/14 11:32:41 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,17 @@ typedef	struct	s_flags
 	int			is_hash;
     int         is_num;
 	int			is_point;
-	int			decimals;
-    int         width;
+	size_t		decimals;
+    size_t      width;
 }				t_flags;
 
-const char			*ft_printsymbol(const char *str, t_flags **flags, int **count);
-//char			*ft_strnjoin(char const *s1, char const *s2, size_t n);
+const char		*ft_printsymbol(const char *str, t_flags **flags, int **count);
 const char		*ft_checkflags(const char *str, int *count, t_flags *flags);
 const char		*ft_printint(const char *str,va_list args, int **count,
 				t_flags **flags);
-int				ft_intlen(unsigned int n);
+size_t			ft_intlen(size_t n);
+const char		*ft_printstring(const char *str, va_list args, int **count,
+				t_flags **flags);
 
 
 #endif
