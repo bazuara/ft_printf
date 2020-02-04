@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 11:49:26 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/04 17:12:13 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/04 17:47:34 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,23 @@ int	ft_prespace(t_flags **flags, size_t length, int count, char filler)
 	//printf("debug pre width: %zu \n", (*flags)->width);
 	dif = (int)(*flags)->width - (int)length;
 	//printf("pre t: %i, width: %zu, length: %zu, count: %i dif: %i\n", t, (*flags)->width, length, count, dif);
-	while (((t < (dif)) && (dif > 0)) || (t <  ((int)(*flags)->width - (int)(*flags)->decimals)))
-	{
-		ft_putchar_fd(filler, 1);
-		//printf("pre t: %i, width: %zu, length: %zu, count: %i dif: %i\n", t, (*flags)->width, length, count, dif);
-		count++;
-		t++;
-	}
+	if ((*flags)->is_point == 1)
+		while ((t < dif) || (t <  ((int)(*flags)->width - (int)(*flags)->decimals)))
+		{
+			ft_putchar_fd(filler, 1);
+			//printf("pre t: %i, width: %zu, length: %zu, count: %i dif: %i\n", t, (*flags)->width, length, count, dif);
+			count++;
+			t++;
+		}
+	else
+		while ((t < dif) && (t <  ((int)(*flags)->width - (int)(*flags)->decimals)))
+		{
+			ft_putchar_fd(filler, 1);
+			//printf("pre t: %i, width: %zu, length: %zu, count: %i dif: %i\n", t, (*flags)->width, length, count, dif);
+			count++;
+			t++;
+		}
+
 	return (count);
 }
 

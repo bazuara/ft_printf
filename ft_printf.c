@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2020/01/15 13:52:17 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/04 17:34:57 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,12 @@ int			ft_printf(const char *str, ...)
 
 	debug = 0;
 	count = 0;
-	initialize_struct(&flags);
 	va_start(args, str);
 	while (str && *str != '\0')
 	{
 		if (*str == '%')
 		{
+			initialize_struct(&flags);
 			str++;
 			//ft_putchar_fd('X', 1);
 			while (ft_isflag((char *)str) == 1)
