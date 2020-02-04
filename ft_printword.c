@@ -6,13 +6,13 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 15:09:53 by bazuara           #+#    #+#             */
-/*   Updated: 2020/01/15 17:46:06 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/04 12:34:09 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printword(char *str, size_t length, int count)
+int	ft_printword(char *str, t_flags **flags, int count)
 {
 	int c;
 	size_t i;
@@ -23,12 +23,21 @@ int	ft_printword(char *str, size_t length, int count)
 		return (c) ;
 	//ft_putstr_fd(str, 1);
 	//ft_putchar_fd(str[1], 1);
-	while ((str[i] != '\0') && length >= i)
-	{
-		ft_putchar_fd(str[i], 1);
-		write(1, &str[i], 1);
-		i++;
-		c++;
-	}
+	if ((*flags)->decimals == 0 && (*flags)->is_point == 1)
+		return (c);
+	if ((*flags)->decimals == 0)
+		while ((str[i] != '\0'))
+		{
+			ft_putchar_fd(str[i], 1);
+			i++;
+			c++;
+		}
+	else
+		while ((str[i] != '\0') && (*flags)->decimals > i)
+		{
+			ft_putchar_fd(str[i], 1);
+			i++;
+			c++;
+		}
 	return (c);
 }
