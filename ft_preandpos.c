@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 11:49:26 by bazuara           #+#    #+#             */
-/*   Updated: 2020/01/15 12:18:56 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/04 13:07:01 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	ft_prespace(size_t width, size_t length, int count, char filler)
 	size_t	t;
 
 	t = 0;
+	//printf("debug preandpos: %zu", length);
 	while ((t < (width - length)) && (width > length))
 	{
 		ft_putchar_fd(filler, 1);
