@@ -6,7 +6,7 @@ int main(void) {
 //           printf("sys: ");
 //	       printf("test, %.i", 5); printf("\n");
 		   //ft_printf("ft_: ");
-		   res = ft_printf("%7.5s", "bombastic"); 
+		   res = ft_printf("%5s", "goes over"); 
 //		   printf("\nres: %i", res);
   return 0;
 }
