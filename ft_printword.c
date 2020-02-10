@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 15:09:53 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/10 17:34:02 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/10 18:40:54 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	ft_printword(char *str, t_flags **flags, int count)
 	c = count;
 	ft_strlcpy(nullstring, "(null)", 7);
 	if (!str)
-		ft_putstr_fd("entra en null",1 );
 	{
 		while (nullstring[i] != '\0' && (((*flags)->precission) == 0 || (i < ((*flags)->precission))))
 		{
