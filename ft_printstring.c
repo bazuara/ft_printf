@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 11:05:30 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/05 13:46:40 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/10 17:36:18 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,13 @@ const char	*ft_printstring(const char *str, va_list args, int **count,
 
 	t = 0;
 	c = va_arg(args, char*);
-	if ((*flags)->is_minus == 0 && (*flags)->width > 0 && c != '\0')
+	if ((*flags)->is_minus == 0 && (*flags)->width > 0)
 		(*(*count)) = ft_prespace((&(*flags)), ft_strlen(c), *(*(count)),
 		(((*flags)->is_zero == 1) ? '0' : ' '));
-	//printf("dec: %zu" ,(*flags)->decimals);
-	if (c == '\0')
-	{
-//		(*(*count)) = ft_prespace((&(*flags)), ft_strlen(c) - 7, *(*(count)),
-//		(((*flags)->is_zero == 1) ? '0' : ' '));
-		ft_putstr_fd("(null)", 1);
-		(*(*count)) += 6;
-		return (++str);
-	}
-	else
-		(*(*count)) = ft_printword(c, &(*flags), (*(*count)));
+	(*(*count)) = ft_printword(c, &(*flags), (*(*count)));
 	if ((*flags)->is_minus == 1 && (*flags)->width > 0)
 		(*(*count)) = ft_prespace((&(*flags)), ft_strlen(c), *(*(count)),
-		//(*(*count)) = ft_posspace((*flags)->width, ft_strlen(c), *(*(count)),
 		(((*flags)->is_zero == 1) ? '0' : ' '));
-	str++;
+	str++;	
 	return (str);
 }

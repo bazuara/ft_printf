@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/04 17:34:57 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/10 17:32:54 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	print_struct(t_flags *flags)
 	printf("is_zero: %i \n", flags->is_zero);
 	printf("is_num: %i \n", flags->is_num);
 	printf("is_point: %i \n", flags->is_point);
-	printf("decimals: %zu \n", flags->decimals);
+	printf("precission: %zu \n", flags->precission);
 	printf("width: %zu \n", flags->width);
 }
 
@@ -34,7 +34,7 @@ static void	initialize_struct(t_flags *flags)
 	flags->is_zero = 0;
 	flags->is_num = 0;
 	flags->is_point = 0;
-	flags->decimals = 0;
+	flags->precission = 0;
 	flags->width = 0;
 }
 
@@ -72,7 +72,7 @@ int			ft_printf(const char *str, ...)
 	t_flags	flags;
 	int		debug;
 
-	debug = 0;
+	debug = 1;
 	count = 0;
 	va_start(args, str);
 	while (str && *str != '\0')
@@ -81,9 +81,11 @@ int			ft_printf(const char *str, ...)
 		{
 			initialize_struct(&flags);
 			str++;
-			//ft_putchar_fd('X', 1);
-			while (ft_isflag((char *)str) == 1)
+			if (ft_isflag((char *)str) == 1)
+			{
 				str = (char *)ft_checkflags((char *)str, &count, &flags);
+				//ft_putstr_fd("lap", 1);
+			}
 			if (debug == 1)
 				print_struct(&flags);
 			str = (char *)ft_print_variable((char *)str, args, &count, &flags);
