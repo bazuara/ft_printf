@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 15:09:53 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/11 14:55:53 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/11 15:03:38 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_printword(char *word, t_flags **flags, int count)
 			}
 		}
 		else
-			while (nullstring[i] != '\0' && (((*flags)->precission) == 0 || (i < ((*flags)->precission))) /*&& (*flags)->width != 0*/)
+			while (nullstring[i] != '\0' && (((*flags)->precission) == 0 || (i < ((*flags)->precission))))
 			{
 				ft_putchar_fd(nullstring[i], 1);
 				i++;
