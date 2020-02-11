@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 15:09:53 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/11 13:45:25 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/11 14:55:53 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ int	ft_printword(char *word, t_flags **flags, int count)
 	i = 0;
 	c = count;
 	ft_strlcpy(nullstring, "(null)", 7);
-	if ((!word || *word == '\0') && ((*flags)->width > 0 || (*flags)->precission > 0 ))
+	if ((!word || *word == '\0' || word == NULL) && ((*flags)->width > 0 || (*flags)->precission > 0))
 	{
+		//ft_putstr_fd("dentro 1", 1);
 		if ((*flags)->is_point == 1 && (*flags)->width > 0)
 		{
 			while (i < 6 && i < (*flags)->width)
@@ -30,7 +31,6 @@ int	ft_printword(char *word, t_flags **flags, int count)
 				ft_putchar_fd(' ',1);
 				i++;
 			}
-			return (c);
 		}
 		else
 			while (nullstring[i] != '\0' && (((*flags)->precission) == 0 || (i < ((*flags)->precission))) /*&& (*flags)->width != 0*/)
@@ -39,17 +39,27 @@ int	ft_printword(char *word, t_flags **flags, int count)
 				i++;
 				c++;
 			}
-			return (c);
 	}
-	if ((*flags)->precission == 0 && (*flags)->is_point == 1)
+	else if ((*flags)->precission == 0 && (*flags)->is_point == 1)
 		return (c);
-	i = 0;
-	if ((*flags)->precission == 0)
-		while ((word[i] != '\0'))
+	else if ((*flags)->precission == 0)
+	{
+		if (!word)
 		{
-			ft_putchar_fd(word[i], 1);
-			i++;
-			c++;
+			while (nullstring[i] != '\0')
+			{
+				ft_putchar_fd(nullstring[i], 1);
+				i++;
+				c++;
+			}
+		}
+		else
+			while ((word[i] != '\0'))
+			{
+				ft_putchar_fd(word[i], 1);
+				i++;
+				c++;
+			}
 		}
 	else
 		while ((word[i] != '\0') && (*flags)->precission > i)
