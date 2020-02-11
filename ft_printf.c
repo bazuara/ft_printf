@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/10 18:39:37 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/11 10:53:28 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int			ft_printf(const char *str, ...)
 	t_flags	flags;
 	int		debug;
 
-	debug = 0;
+	debug = 1;
 	count = 0;
 	va_start(args, str);
 	while (str && *str != '\0')
