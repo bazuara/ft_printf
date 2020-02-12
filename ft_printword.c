@@ -6,24 +6,39 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 15:09:53 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/11 15:03:38 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/11 16:10:14 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printword(char *word, t_flags **flags, int count)
+int ft_print_n_null(int n)
+{
+	char	nullstring[7];
+	int		i;
+	int		c;
+	
+	i = 0;
+	c = 0;
+	ft_strlcpy(nullstring, "(null)", 7);
+	while (nullstring[i] != '\0' && i < n)
+	{
+		ft_putchar_fd(nullstring[i], 1);
+		i++;
+		c++;
+	}
+	return (c);
+}
+
+int		ft_printword(char *word, t_flags **flags, int count)
 {
 	int c;
 	size_t i;
-	char nullstring[7];
 
 	i = 0;
 	c = count;
-	ft_strlcpy(nullstring, "(null)", 7);
 	if ((!word || *word == '\0' || word == NULL) && ((*flags)->width > 0 || (*flags)->precission > 0))
 	{
-		//ft_putstr_fd("dentro 1", 1);
 		if ((*flags)->is_point == 1 && (*flags)->width > 0)
 		{
 			while (i < 6 && i < (*flags)->width)
@@ -33,26 +48,14 @@ int	ft_printword(char *word, t_flags **flags, int count)
 			}
 		}
 		else
-			while (nullstring[i] != '\0' && (((*flags)->precission) == 0 || (i < ((*flags)->precission))))
-			{
-				ft_putchar_fd(nullstring[i], 1);
-				i++;
-				c++;
-			}
+			c += ft_print_n_null((*flags)->precission);
 	}
 	else if ((*flags)->precission == 0 && (*flags)->is_point == 1)
 		return (c);
 	else if ((*flags)->precission == 0)
 	{
 		if (!word)
-		{
-			while (nullstring[i] != '\0')
-			{
-				ft_putchar_fd(nullstring[i], 1);
-				i++;
-				c++;
-			}
-		}
+			c += ft_print_n_null(6);
 		else
 			while ((word[i] != '\0'))
 			{
@@ -61,6 +64,8 @@ int	ft_printword(char *word, t_flags **flags, int count)
 				c++;
 			}
 		}
+	//else if ((*flags)->width > 0 && (*flags)->precission == 0)
+	//	c += ft_print_n_null((*flags)->precission);
 	else
 		while ((word[i] != '\0') && (*flags)->precission > i)
 		{
