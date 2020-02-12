@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/12 12:34:32 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/12 17:19:41 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,7 @@ char		*ft_print_variable(char *str, va_list args, int *count,
 	else if (*str == '%')
 		str = (char *)ft_printsymbol(str, &flags, &count);
 	else if (*str == 'c')
-	{
-		ft_putchar_fd(va_arg(args, int), 1);
-		(*count)++;
-		str++;
-	}
+		str = (char *)ft_printchar(str, args, &count, &flags);
 	else if (*str == 's')
 		str = (char *)ft_printstring(str, args, &count, &flags);
 	return (str);
@@ -72,7 +68,7 @@ int			ft_printf(const char *str, ...)
 	t_flags	flags;
 	int		debug;
 
-	debug = 0;
+	debug = 1;
 	count = 0;
 	va_start(args, str);
 	while (str && *str != '\0')

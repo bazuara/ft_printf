@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 15:42:46 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/10 16:36:27 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/12 16:36:56 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int				ft_prespace(t_flags **flags, size_t length, int count,
 				char filler);
 int				ft_posspace(size_t width, size_t length, int count, char filler);
 const char		*ft_printstring(const char *str, va_list args, int **count,
+				t_flags **flags);
+const char		*ft_printchar(const char *str, va_list args, int **count,
 				t_flags **flags);
 int				ft_printword(char *str, t_flags **flags, int count);
 
