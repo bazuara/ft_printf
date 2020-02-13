@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 15:37:39 by bazuara           #+#    #+#             */
-/*   Updated: 2020/01/14 11:33:13 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/13 16:38:16 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,15 @@ const char	*ft_printint(const char *str, va_list args, int **count,
 		t_flags **flags)
 {
 	int 	i;
-	size_t	t;
+	char 	num[22];
 
-	t = 0;
 	i = va_arg(args, int);
-	if ((*flags)->is_minus == 0 && (*flags)->width > 0)
-		while (t < ((*flags)->width - ft_intlen(i)))
-		{
-			ft_putchar_fd((((*flags)->is_zero == 1) ? '0' : ' '), 1);
-			(*(*count))++;
-			t++;
-		}
-	if ((*flags)->is_plus == 1 && i >= 0)
-	{
-		ft_putchar_fd('+', 1);
-		(*(*count))++;
-	}
-	ft_putnbr_fd(i, 1);
-	(*(*count)) += ft_intlen(i);
+	if ((*flags)->width > 0)
+		ft_memcpy(num, ft_itoa(i), (*flags)->width);
+	else
+		ft_memcpy(num, ft_itoa(i), 22);
+	ft_putstr_fd(num, 1);
+	(*(*count)) += ft_strlen(num);
 	str++;
-	if ((*flags)->is_minus == 1 && (*flags)->width > 0)
-		while (t < ((*flags)->width - ft_intlen(i)))
-		{
-			ft_putchar_fd((((*flags)->is_zero == 1) ? '0' : ' '), 1);
-			(*(*count))++;
-			t++;
-		}
 	return (str);
 }

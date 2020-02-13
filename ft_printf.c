@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/13 14:31:48 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/13 15:51:06 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,19 +51,19 @@ char		*ft_print_variable(char *str, va_list args, int *count,
 		str = (char *)ft_printstring(str, args, &count, &flags);
 	else if (*str == 'p')
 		//str = (char *)ft_printpointer(str, args, &count, &flags);
-		1 == 1;
+		ft_putstr_fd("Todo: pointer", 1);
 	else if (*str == 'd')
 		//str = (char *)ft_printdecimal(str, args, &count, &flags);
-		1 == 1;
+		ft_putstr_fd("Todo: Decimals", 1);
 	else if (*str == 'u')
 		//str = (char *)ft_printunsigned(str, args, &count, &flags);
-		1 == 1;
+		ft_putstr_fd("Todo: Unsigned", 1);
 	else if (*str == 'x')
 		//str = (char *)ft_printminhex(str, args, &count, &flags);
-		1 == 1;
+		ft_putstr_fd("Todo: Min Hex", 1);
 	else if (*str == 'X')
 		//str = (char *)ft_printmaxhex(str, args, &count, &flags);
-		1 == 1;
+		ft_putstr_fd("Todo: Max Hex", 1);
 	return (str);
 }
 
