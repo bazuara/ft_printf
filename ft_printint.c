@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 15:37:39 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/17 13:02:19 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/17 13:36:04 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,6 @@ const char	*ft_printint(const char *str, va_list args, int **count,
 			num = ft_calloc((*flags)->precission + 1, sizeof(char));
 			ft_memcpy(num, ft_itoa(i), (*flags)->precission);
 		}
-		if ((*flags)->is_minus == 0)
-			num = ft_strjoin(filler, num);
-		else
-			num = ft_strjoin(num, filler);
 	}
 	else
 	{
@@ -43,6 +39,15 @@ const char	*ft_printint(const char *str, va_list args, int **count,
 	//TODO prepend y postpend spaces
 	if ((*flags)->is_plus == 1 && i >= 0)
 		num = ft_strjoin(plus, num);
+	if ((*flags)->width > ft_strlen(num))
+	{
+		filler = ft_calloc((*flags)->width - ft_strlen(num) + 1 , sizeof(char));
+		filler = ft_memset(filler, ' ', (*flags)->width - ft_strlen(num));
+		if ((*flags)->is_minus == 0)
+			num = ft_strjoin(filler, num);
+		else
+			num = ft_strjoin(num, filler);
+	}
 	ft_putstr_fd(num, 1);
 	(*(*count)) += ft_strlen(num);
 	str++;
