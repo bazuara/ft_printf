@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 15:37:39 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/17 14:18:43 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/17 16:39:14 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,11 @@ const char	*ft_printint(const char *str, va_list args, int **count,
 			num = ft_strjoin(filler, num);
 		else
 			num = ft_strjoin(num, filler);
+		free(filler);
 	}
 	ft_putstr_fd(num, 1);
 	(*(*count)) += ft_strlen(num);
 	str++;
+	free(num);
 	return (str);
 }
