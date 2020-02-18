@@ -6,7 +6,7 @@
 #    By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/07 03:11:01 by bazuara           #+#    #+#              #
-#    Updated: 2020/02/12 16:32:50 by bazuara          ###   ########.fr        #
+#    Updated: 2020/02/18 11:09:54 by bazuara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,20 +85,31 @@ $(NAME):
 	@gcc $(CFLAGS) $(LFLAGS) $(SOURCE)
 	@ar rc $(LNAME) $(OBJ) $(LIBOBJ)
 	@ranlib $(LNAME)
-	echo "Compiled '$(NAME)' successfully"${RESET}
+	@echo "Compiled '$(NAME)' successfully"
 
 # Rule to remove object files
 clean:
 	@rm -f $(LIBOBJ) $(LBONUSSRC) $(OBJ) $(LIBOBJ) src/lib/*.o
-	@echo "Cleaned objects successfully"${RESET}
+	@echo "Cleaned objects successfully"
 
 # Rule to remove binary, calls the 'clean' rule first
 fclean: clean
 	@rm -f $(LNAME)
-	@echo "Removed '$(LNAME)' with success"${RESET}
+	@echo "Removed '$(LNAME)' with success"
 
 # Rule to remove object files and binary, then re-build everything
 re: fclean all
+
+test: fclean 
+	@clear
+	@echo "Testing..."
+	gcc *.c ./src/lib/*.c
+	@echo "\ntest result:"
+	@./a.out
+	@echo "\ntest result with cat -e:"
+	@./a.out | cat -e
+	@echo "\n"
+
 
 # Rules that are not linked with a filename should be listed here
 .PHONY: all clean fclean re
