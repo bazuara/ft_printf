@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 11:49:01 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/12 16:11:04 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/24 12:58:11 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ const char		*ft_checkflags(const char *str, int *count, t_flags *flags)
 				str++;
 			str += ft_intlen(ft_atoi(str));
 		}
+		flags->is_zero = 0;
 	}
 	return (str);
 }

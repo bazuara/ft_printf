@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/18 14:30:28 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/24 13:04:13 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int			ft_printf(const char *str, ...)
 		{
 			initialize_struct(&flags);
 			str++;
-			if (ft_isflag((char *)str) == 1)
+			while (ft_isflag((char *)str) == 1)
 			{
 				str = (char *)ft_checkflags((char *)str, &count, &flags);
 				//ft_putstr_fd("lap", 1);
