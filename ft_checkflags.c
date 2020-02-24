@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 11:49:01 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/24 12:58:11 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/24 15:26:05 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,20 @@ const char		*ft_checkflags(const char *str, int *count, t_flags *flags)
 	{
 		flags->is_num = 1;
 		flags->width = ft_atoi(str);
+		flags->has_width = 1;
 		str += ft_intlen(ft_atoi(str));
 	}
 	if (*str == '.')
 	{
+		flags->has_precission = 1;
 		flags->is_point = 1;
 		str++;
 		if (ft_isdigit(*str) == 1)
 		{
 			flags->precission = ft_atoi(str);
-			while (*str == '0')
-				str++;
-			str += ft_intlen(ft_atoi(str));
+		//	while (*str == '0')
+		//		str++;
+			str += ft_strlen(ft_itoa(ft_atoi(str)));
 		}
 		flags->is_zero = 0;
 	}

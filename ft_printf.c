@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/24 13:04:13 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/24 15:26:41 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ static void	print_struct(t_flags *flags)
 	printf("is_zero: %i \n", flags->is_zero);
 	printf("is_num: %i \n", flags->is_num);
 	printf("is_point: %i \n", flags->is_point);
+	printf("has_precission: %i \n", flags->has_precission);
 	printf("precission: %zu \n", flags->precission);
+	printf("has_width: %i \n", flags->has_width);
 	printf("width: %zu \n", flags->width);
 }
 
@@ -34,7 +36,9 @@ static void	initialize_struct(t_flags *flags)
 	flags->is_zero = 0;
 	flags->is_num = 0;
 	flags->is_point = 0;
+	flags->has_precission = 0;
 	flags->precission = 0;
+	flags->has_width = 0;
 	flags->width = 0;
 }
 

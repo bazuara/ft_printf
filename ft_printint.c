@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 15:37:39 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/24 12:48:52 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/24 15:18:29 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,13 @@ const char	*ft_printint(const char *str, va_list args, int **count,
 		abs = - i;
 	else
 		abs = i;
-	num = ft_strjoin("", ft_itoa(abs));
+	if (i == 0 && (*flags)->precission == 0 && (*flags)->has_precission == 1)
+		num = ft_strjoin("","");
+	else
+		num = ft_strjoin("", ft_itoa(abs));
 	//aplicar ceros de precission
-	if ((*flags)->precission >= ft_strlen(num))
+	//ft_putstr_fd("\n DEBUG 1", 1);
+	if ((*flags)->precission >= ft_strlen(num) && (*flags)->precission > 0)
 	{
 		filler = ft_calloc(max_int((*flags)->precission, (*flags)->width) - ft_strlen(ft_itoa(abs)) + 1, sizeof(char));
 		ft_memset(filler, '0', (*flags)->precission - ft_strlen(ft_itoa(abs)));
@@ -43,6 +47,7 @@ const char	*ft_printint(const char *str, va_list args, int **count,
 		free (filler);
 	}
 	//aplicar ceros de width
+	//ft_putstr_fd("\n DEBUG 2", 1);
 	if ((*flags)->width > ft_strlen(num) && (*flags)->is_zero == 1)
 	{
 		filler = ft_calloc((*flags)->width - ft_strlen(num) + 1, sizeof(char));
@@ -54,6 +59,7 @@ const char	*ft_printint(const char *str, va_list args, int **count,
 		free (filler);
 	}
 	//aplicar el menos
+	//ft_putstr_fd("\n DEBUG 3", 1);
 	if (i < 0)
 	{
 		if (*num == '0' && (*flags)->width == ft_strlen(num))
@@ -62,7 +68,10 @@ const char	*ft_printint(const char *str, va_list args, int **count,
 			num = ft_strjoin("-", num);
 	}
 	//aplicar espacios
-	if ((*flags)->width > ft_strlen(num) && (*flags)->is_zero == 0)
+	//ft_putstr_fd("debug ft_strlen(num):", 1);
+	//ft_putnbr_fd(ft_strlen(num), 1);
+	//ft_putstr_fd("\n DEBUG 4", 1);
+	if ((*flags)->width > ft_strlen(num))
 	{
 		filler = ft_calloc((*flags)->width - ft_strlen(num) + 1, sizeof(char));
 		ft_memset(filler, ' ', (*flags)->width - ft_strlen(num));

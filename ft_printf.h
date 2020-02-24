@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 15:42:46 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/12 16:36:56 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/24 13:21:56 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ typedef	struct	s_flags
 	int			is_hash;
     int         is_num;
 	int			is_point;
+	int			has_precission;
 	size_t		precission;
+	int			has_width;
     size_t      width;
 }				t_flags;
 
