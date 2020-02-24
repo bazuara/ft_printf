@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 15:09:53 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/12 16:03:22 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/24 15:34:13 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	ft_printword(char *word, t_flags **flags, int count)
 			count += ft_print_n_null(7, (*flags)->width - 6,
 					(*flags)->is_minus);
 	else if ((*flags)->precission == 0 && (*flags)->is_point == 0)
-		count *= ft_putstr_len(word);
+		count += ft_putstr_len(word);
 	else if ((*flags)->precission != 0)
 		while (i < (*flags)->precission && word[i] != '\0')
 		{

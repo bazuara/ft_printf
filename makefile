@@ -6,7 +6,7 @@
 #    By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/07 03:11:01 by bazuara           #+#    #+#              #
-#    Updated: 2020/02/18 11:09:54 by bazuara          ###   ########.fr        #
+#    Updated: 2020/02/24 16:16:38 by bazuara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,8 +106,6 @@ test: fclean
 	gcc *.c ./src/lib/*.c
 	@echo "\ntest result:"
 	@./a.out
-	@echo "\ntest result with cat -e:"
-	@./a.out | cat -e
 	@echo "\n"
 
 

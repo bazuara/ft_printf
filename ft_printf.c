@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/24 15:26:41 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/24 16:30:25 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,40 @@
 
 static void	print_struct(t_flags *flags)
 {
-	printf("\n");
-	printf("-----DEBBUG------\n");
-	printf("is_minus: %i \n", flags->is_minus);
-	printf("is_plus: %i \n", flags->is_plus);
-	printf("is_space: %i \n", flags->is_space);
-	printf("is_zero: %i \n", flags->is_zero);
-	printf("is_num: %i \n", flags->is_num);
-	printf("is_point: %i \n", flags->is_point);
-	printf("has_precission: %i \n", flags->has_precission);
-	printf("precission: %zu \n", flags->precission);
-	printf("has_width: %i \n", flags->has_width);
-	printf("width: %zu \n", flags->width);
+	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("-----DEBBUG------\n", 1);
+	ft_putstr_fd("is_minus: ", 1);
+	ft_putnbr_fd(flags->is_minus, 1);
+	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("is_plus: ", 1);
+	ft_putnbr_fd(flags->is_plus, 1);
+	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("is_zero: ", 1);
+	ft_putnbr_fd(flags->is_zero, 1);
+	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("is_num: ", 1);
+	ft_putnbr_fd(flags->is_num, 1);
+	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("is_point: ", 1);
+	ft_putnbr_fd(flags->is_point, 1);
+	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("has_precission: ", 1);
+	ft_putnbr_fd(flags->has_precission, 1);
+	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("precission: ", 1);
+	ft_putnbr_fd(flags->precission, 1);
+	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("has_width: ", 1);
+	ft_putnbr_fd(flags->has_width, 1);
+	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("width: ", 1);
+	ft_putnbr_fd(flags->width, 1);
+	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("---END-DEBBUG----\n", 1);
+	ft_putchar_fd('\n', 1);
+	ft_putchar_fd('\n', 1);
+	
+	
 }
 
 static void	initialize_struct(t_flags *flags)
@@ -96,7 +118,7 @@ int			ft_printf(const char *str, ...)
 		{
 			initialize_struct(&flags);
 			str++;
-			while (ft_isflag((char *)str) == 1)
+			if (ft_isflag((char *)str) == 1)
 			{
 				str = (char *)ft_checkflags((char *)str, &count, &flags);
 				//ft_putstr_fd("lap", 1);
