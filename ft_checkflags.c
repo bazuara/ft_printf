@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 11:49:01 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/26 11:18:47 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/26 12:13:09 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ const char		*ft_checkflags_sym(const char *str, t_flags *flags)
 			flags->is_zero = 1;
 			str++;
 		}
-	/*if (ft_isdigit(*str) == 1)
-	}*/
 	return (str);
 }
 
@@ -64,10 +62,11 @@ const char		*ft_checkflags_num(const char *str, t_flags *flags)
 		str++;
 		if (ft_isdigit(*str) == 1)
 		{
-//			while (*str == '0')
-//				str++;
+			//check how to skip zeroes
 			flags->precission = ft_atoi(str);
-			str += ft_strlen(ft_itoa(ft_atoi(str)));
+			while (*str >= '0' && *str <= '9')
+				str++;
+		//	str += ft_strlen(ft_itoa(ft_atoi(str)));
 		}
 		flags->is_zero = 0;
 	}
