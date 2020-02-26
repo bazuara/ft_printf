@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 15:42:46 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/26 11:00:38 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/26 12:54:19 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ const char		*ft_printsymbol(const char *str, t_flags **flags, int **count);
 const char		*ft_checkflags_sym(const char *str, t_flags *flags);
 const char		*ft_checkflags_num(const char *str, t_flags *flags);
 const char		*ft_printint(const char *str,va_list args, int **count,
+				t_flags **flags);
+const char		*ft_printunsigned(const char *str, va_list args, int **count,
 				t_flags **flags);
 size_t			ft_intlen(size_t n);
 int				ft_prespace(t_flags **flags, size_t length, int count,
