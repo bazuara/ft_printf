@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/24 16:30:25 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/26 11:20:16 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static void	print_struct(t_flags *flags)
 	ft_putstr_fd("---END-DEBBUG----\n", 1);
 	ft_putchar_fd('\n', 1);
 	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("result:",1);
 	
 	
 }
@@ -96,8 +97,7 @@ char		*ft_print_variable(char *str, va_list args, int *count,
 int			ft_isflag(char *str)
 {
 	if (*str == '-' || *str == '+' || *str == ' ' ||
-		(*str >= '0' & *str <= '9') || *str == '#' ||
-		*str == '.')
+		(*str == '0') || *str == '#')
 		return (1);
 	return (0);
 }
@@ -118,11 +118,10 @@ int			ft_printf(const char *str, ...)
 		{
 			initialize_struct(&flags);
 			str++;
-			if (ft_isflag((char *)str) == 1)
-			{
-				str = (char *)ft_checkflags((char *)str, &count, &flags);
-				//ft_putstr_fd("lap", 1);
-			}
+			while (ft_isflag((char *)str) == 1)
+				str = (char *)ft_checkflags_sym((char *)str, &flags);
+			if (*str == '.' || (*str >= '0' && *str <= '9'))
+				str = (char *)ft_checkflags_num((char *)str, &flags);
 			if (debug == 1)
 				print_struct(&flags);
 			str = (char *)ft_print_variable((char *)str, args, &count, &flags);
