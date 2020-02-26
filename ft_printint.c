@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 15:37:39 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/26 11:24:54 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/26 17:41:04 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ int		max_int(int a, int b)
 const char	*ft_printint(const char *str, va_list args, int **count,
 		t_flags **flags)
 {
-	int 	i;
+	long int 	i;
 	int		abs;
 	char 	*num;
 	char	*filler;
 
-	i = va_arg(args, int);
+	i = va_arg(args, long int);
 	if (i < 0)
 		abs = - i;
 	else
@@ -37,6 +37,9 @@ const char	*ft_printint(const char *str, va_list args, int **count,
 		num = ft_strjoin("","");
 	else
 		num = ft_strjoin("", ft_itoa(abs));
+	//printf("DEBUGG ======= abs %u\n", abs);
+	//printf("DEBUGG ======= long itoa %s\n", ft_long_itoa(abs));
+	//printf("DEBUGG ======= num %s\n", num);
 	//aplicar ceros de precission
 	//ft_putstr_fd("\n DEBUG 1", 1);
 	if ((*flags)->precission >= ft_strlen(num) && (*flags)->precission > 0)

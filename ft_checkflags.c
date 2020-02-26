@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 11:49:01 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/26 12:13:09 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/26 16:19:48 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,29 @@ size_t			ft_intlen(size_t n)
 
 const char		*ft_checkflags_sym(const char *str, t_flags *flags)
 {
+		if (*str == '0')
+		{
+			flags->is_zero = 1;
+			str++;
+		}
 		if (*str == '-')
 		{
 			flags->is_minus = 1;
 			str++;
 		}
-		if (*str == '+')
+		else if (*str == '+')
 		{
 			flags->is_plus = 1;
 			str++;
 		}
-		if (*str == ' ')
+		else if (*str == ' ')
 		{
 			flags->is_space = 1;
 			str++;
 		}
-		if (*str == '0')
+		else if (*str == '*')
 		{
-			flags->is_zero = 1;
-			str++;
+			flags->is_asterisk = 1;
 		}
 	return (str);
 }

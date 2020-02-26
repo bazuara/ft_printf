@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/26 12:56:00 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/26 16:48:37 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ static void	print_struct(t_flags *flags)
 	ft_putchar_fd('\n', 1);
 	ft_putstr_fd("is_point: ", 1);
 	ft_putnbr_fd(flags->is_point, 1);
+	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("is_asterisk: ", 1);
+	ft_putnbr_fd(flags->is_asterisk, 1);
 	ft_putchar_fd('\n', 1);
 	ft_putstr_fd("has_precission: ", 1);
 	ft_putnbr_fd(flags->has_precission, 1);
@@ -59,6 +62,7 @@ static void	initialize_struct(t_flags *flags)
 	flags->is_zero = 0;
 	flags->is_num = 0;
 	flags->is_point = 0;
+	flags->is_asterisk = 0;
 	flags->has_precission = 0;
 	flags->precission = 0;
 	flags->has_width = 0;
@@ -68,7 +72,7 @@ static void	initialize_struct(t_flags *flags)
 char		*ft_print_variable(char *str, va_list args, int *count,
 		t_flags *flags)
 {
-	if (*str == 'i' || *str == 'd')
+	if (*str == 'i' || *str == 'd' || *str == 'u')
 		str = (char *)ft_printint(str, args, &count, &flags);
 	else if (*str == '%')
 		str = (char *)ft_printsymbol(str, &flags, &count);
@@ -79,8 +83,8 @@ char		*ft_print_variable(char *str, va_list args, int *count,
 	else if (*str == 'p')
 		//str = (char *)ft_printpointer(str, args, &count, &flags);
 		ft_putstr_fd("Todo: pointer", 1);
-	else if (*str == 'u')
-		str = (char *)ft_printunsigned(str, args, &count, &flags);
+//	else if (*str == 'u')
+//		str = (char *)ft_printunsigned(str, args, &count, &flags);
 	else if (*str == 'x')
 		//str = (char *)ft_printminhex(str, args, &count, &flags);
 		ft_putstr_fd("Todo: Min Hex", 1);
@@ -93,7 +97,7 @@ char		*ft_print_variable(char *str, va_list args, int *count,
 int			ft_isflag(char *str)
 {
 	if (*str == '-' || *str == '+' || *str == ' ' ||
-		(*str == '0') || *str == '#')
+		(*str == '0') || *str == '#' || *str == '*')
 		return (1);
 	return (0);
 }
