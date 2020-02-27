@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 11:49:01 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/27 14:09:18 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/27 14:51:25 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,18 @@ size_t			ft_intlen(size_t n)
 	else
 		return (ft_intlen(n / 10) + 1);
 }
+int			ft_isnum(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
 
 const char		*ft_checkflags_sym(const char *str, t_flags *flags)
 {
 		if (*str == '0')
 		{
-			if (ft_isdigit(*(str + 1)) == 0)
+			if (ft_isflag((char *)str - 1) == 0)
 				flags->is_zero = 1;
 			str++;
 		}
