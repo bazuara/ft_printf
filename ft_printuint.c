@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printint.c                                      :+:      :+:    :+:   */
+/*   ft_printuint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 15:37:39 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/27 13:51:00 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/27 13:50:21 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		max_int(int a, int b)
-{
-	if (a > b)
-		return (a);
-	else
-		return (b);
-}
-
-const char	*ft_printint(const char *str, va_list args, int **count,
+const char	*ft_printuint(const char *str, va_list args, int **count,
 		t_flags **flags)
 {
-	int 	i;
-	int		abs;
+	long int 	i;
+	unsigned long long	int abs;
 	char 	*num;
 	char	*filler;
 
-	i = va_arg(args, int);
+	i = va_arg(args, long int);
 	if (i < 0)
 		abs = - i;
 	else
@@ -36,13 +28,16 @@ const char	*ft_printint(const char *str, va_list args, int **count,
 	if (i == 0 && (*flags)->precission == 0 && (*flags)->has_precission == 1)
 		num = ft_strjoin("","");
 	else
-		num = ft_strjoin("", ft_itoa(abs));
+		num = ft_strjoin("", ft_uitoa(abs));
+//	printf("DEBUGG ======= abs %u\n", abs);
+//	printf("DEBUGG ======= uitoa %s\n", ft_uitoa(abs));
+//	printf("DEBUGG ======= num %s\n", num);
 	//aplicar ceros de precission
 	//ft_putstr_fd("\n DEBUG 1", 1);
 	if ((*flags)->precission >= ft_strlen(num) && (*flags)->precission > 0)
 	{
-		filler = ft_calloc(max_int((*flags)->precission, (*flags)->width) - ft_strlen(ft_itoa(abs)) + 1, sizeof(char));
-		ft_memset(filler, '0', (*flags)->precission - ft_strlen(ft_itoa(abs)));
+		filler = ft_calloc(max_int((*flags)->precission, (*flags)->width) - ft_strlen(ft_uitoa(abs)) + 1, sizeof(char));
+		ft_memset(filler, '0', (*flags)->precission - ft_strlen(ft_uitoa(abs)));
 		num = ft_strjoin(filler, num);
 		free (filler);
 	}

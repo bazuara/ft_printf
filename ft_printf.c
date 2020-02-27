@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/26 16:48:37 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/27 13:33:25 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static void	initialize_struct(t_flags *flags)
 char		*ft_print_variable(char *str, va_list args, int *count,
 		t_flags *flags)
 {
-	if (*str == 'i' || *str == 'd' || *str == 'u')
+	if (*str == 'i' || *str == 'd')
 		str = (char *)ft_printint(str, args, &count, &flags);
 	else if (*str == '%')
 		str = (char *)ft_printsymbol(str, &flags, &count);
@@ -83,8 +83,8 @@ char		*ft_print_variable(char *str, va_list args, int *count,
 	else if (*str == 'p')
 		//str = (char *)ft_printpointer(str, args, &count, &flags);
 		ft_putstr_fd("Todo: pointer", 1);
-//	else if (*str == 'u')
-//		str = (char *)ft_printunsigned(str, args, &count, &flags);
+	else if (*str == 'u')
+		str = (char *)ft_printuint(str, args, &count, &flags);
 	else if (*str == 'x')
 		//str = (char *)ft_printminhex(str, args, &count, &flags);
 		ft_putstr_fd("Todo: Min Hex", 1);
