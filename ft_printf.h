@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 15:42:46 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/27 13:51:19 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/27 14:02:15 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int				ft_printword(char *str, t_flags **flags, int count);
 char			*ft_long_itoa(long int nbr);
 const char		*ft_printuint(const char *str,va_list args, int **count,
 				t_flags **flags);
+int				ft_isflag(char *str);
 int				max_int(int a, int b);
 
 

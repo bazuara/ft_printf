@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 11:49:01 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/26 16:19:48 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/02/27 14:09:18 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ const char		*ft_checkflags_sym(const char *str, t_flags *flags)
 {
 		if (*str == '0')
 		{
-			flags->is_zero = 1;
+			if (ft_isdigit(*(str + 1)) == 0)
+				flags->is_zero = 1;
 			str++;
 		}
 		if (*str == '-')
