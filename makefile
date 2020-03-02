@@ -6,7 +6,7 @@
 #    By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/07 03:11:01 by bazuara           #+#    #+#              #
-#    Updated: 2020/02/27 13:37:19 by bazuara          ###   ########.fr        #
+#    Updated: 2020/03/02 15:12:33 by bazuara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SOURCE = ft_printf.c \
 		 ft_preandpos.c \
 		 ft_printword.c \
 		 ft_printchar.c \
-		 ft_uitoa.c
+		 ft_uitoa.c \
+		 ft_printhex.c
 
 OBJFOLDER = src/lib/
 
