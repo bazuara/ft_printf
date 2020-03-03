@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 15:42:46 by bazuara           #+#    #+#             */
-/*   Updated: 2020/03/03 15:34:33 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/03/03 18:46:31 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef	struct	s_flags
 }				t_flags;
 
 const char		*ft_printsymbol(const char *str, t_flags **flags, int **count);
-const char		*ft_checkflags_sym(const char *str, t_flags *flags);
+const char		*ft_checkflags_sym(const char *str, va_list args ,t_flags *flags);
 const char		*ft_checkflags_num(const char *str, t_flags *flags);
 char			*ft_uitoa(unsigned long long int n);
 char			*ft_strtoupper(char *str);

@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 11:49:01 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/27 14:51:25 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/03/03 18:50:47 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,33 +27,34 @@ int			ft_isnum(int c)
 	return (0);
 }
 
-const char		*ft_checkflags_sym(const char *str, t_flags *flags)
+const char		*ft_checkflags_sym(const char *str, va_list args, t_flags *flags)
 {
-		if (*str == '0')
+	int i;
+
+	if (*str == '0')
+	{
+		if (ft_isflag((char *)str - 1) == 0)
+			flags->is_zero = 1;
+	}
+	if (*str == '-')
+		flags->is_minus = 1;
+	else if (*str == '+')
+		flags->is_plus = 1;
+	else if (*str == ' ')
+		flags->is_space = 1;
+	else if (*str == '*')
+	{
+		//flags->is_asterisk = 1;
+		i = va_arg(args, int);
+		if (i < 0)
 		{
-			if (ft_isflag((char *)str - 1) == 0)
-				flags->is_zero = 1;
-			str++;
-		}
-		if (*str == '-')
-		{
+			flags->width = -i;
 			flags->is_minus = 1;
-			str++;
 		}
-		else if (*str == '+')
-		{
-			flags->is_plus = 1;
-			str++;
-		}
-		else if (*str == ' ')
-		{
-			flags->is_space = 1;
-			str++;
-		}
-		else if (*str == '*')
-		{
-			flags->is_asterisk = 1;
-		}
+		else
+			flags->width = i;
+	}
+	str++;
 	return (str);
 }
 

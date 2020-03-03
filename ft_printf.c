@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2020/03/02 15:30:53 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/03/03 18:45:46 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ int			ft_printf(const char *str, ...)
 			initialize_struct(&flags);
 			str++;
 			while (ft_isflag((char *)str) == 1)
-				str = (char *)ft_checkflags_sym((char *)str, &flags);
+				str = (char *)ft_checkflags_sym((char *)str, args, &flags);
 			if (*str == '.' || (*str >= '0' && *str <= '9'))
 				str = (char *)ft_checkflags_num((char *)str, &flags);
 			if (debug == 1)
