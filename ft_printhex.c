@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:11:05 by bazuara           #+#    #+#             */
-/*   Updated: 2020/03/03 14:06:34 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/03/03 15:35:18 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ const char	*ft_printhex(const char *str, va_list args, int **count,
 	abs = (i < 0) ? -i : i;
 	//ft_putstr_fd(ft_uitohex(i), 1);
 	//TODO rehacer el condicional
-	if ((((*flags)->has_precission == 1 && (*flags)->precission == 0))|| ((*flags)->has_width == 1 && ((*flags)->width == 0)) && i == 0)
+	if ((((*flags)->has_precission == 1 && (*flags)->precission == 0) || ((*flags)->has_width == 1 && (*flags)->width == 0)) && (i == 0))
 		hex = ft_strjoin("", "");
 	else
 		hex = ft_strjoin("", ft_strrev(ft_uitohex(i)));
@@ -110,6 +110,8 @@ const char	*ft_printhex(const char *str, va_list args, int **count,
 			hex = ft_strjoin(hex, filler);
 		free (filler);
 	}
+	if (*str == 'X')
+		hex = ft_strtoupper(hex);
 	*(*(count)) += ft_strlen(hex);
 	ft_putstr_fd(hex, 1);
 	str++;
