@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:11:05 by bazuara           #+#    #+#             */
-/*   Updated: 2020/03/03 13:03:13 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/03/03 14:06:34 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,25 @@ char		ft_numtohex(int n)
 	return (0);
 }
 
+char		*ft_strrev(char *str)
+{
+	int		c;
+	int		i;
+	char	temp;
+
+	c = ft_strlen(str);
+	i = 0;
+	while (i <= (c / 2))
+	{
+		temp = str[i];
+		str[i] = str[c - 1];
+		str[c - 1] = temp;
+		c--;
+		i++;
+	}
+	return (str);
+}
+
 char		*ft_uitohex(unsigned int q)
 {
 	char	*str;
@@ -52,24 +71,6 @@ char		*ft_uitohex(unsigned int q)
 	return (str - i);
 }
 
-char		*ft_strrev(char *str)
-{
-	int		c;
-	int		i;
-	char	temp;
-
-	c = ft_strlen(str);
-	i = 0;
-	while (i <= ((c + 1) / 2))
-	{
-		temp = str[i];
-		str[i] = str[c - 1];
-		str[c - 1] = temp;
-		c--;
-		i++;
-	}
-	return (str);
-}
 
 const char	*ft_printhex(const char *str, va_list args, int **count,
 		t_flags **flags)
@@ -77,12 +78,38 @@ const char	*ft_printhex(const char *str, va_list args, int **count,
 	long int		i;
 	unsigned int	abs;
 	char			*hex;
+	char			*filler;
+
+
 
 	(void)flags;
 	i = va_arg(args, long int);
 	abs = (i < 0) ? -i : i;
 	//ft_putstr_fd(ft_uitohex(i), 1);
-	hex = ft_strjoin("", ft_strrev(ft_uitohex(i)));
+	//TODO rehacer el condicional
+	if ((((*flags)->has_precission == 1 && (*flags)->precission == 0))|| ((*flags)->has_width == 1 && ((*flags)->width == 0)) && i == 0)
+		hex = ft_strjoin("", "");
+	else
+		hex = ft_strjoin("", ft_strrev(ft_uitohex(i)));
+	//aplicar precission
+	if ((*flags)->precission >= ft_strlen(hex) && (*flags)->precission > 0)
+	{
+		filler = ft_calloc((*flags)->precission - ft_strlen(hex) + 1, sizeof(char));
+		ft_memset(filler, '0', (*flags)->precission - ft_strlen(hex));
+		hex = ft_strjoin(filler, hex);
+		free (filler);
+	}
+	//aplicar width
+	if ((*flags)->width > ft_strlen(hex))
+	{
+		filler = ft_calloc((*flags)->width - ft_strlen(hex) + 1, sizeof(char));
+		ft_memset(filler, ((*flags)->is_zero == 1 ? '0' : ' '), (*flags)->width - ft_strlen(hex));
+		if ((*flags)->is_minus == 0)
+			hex = ft_strjoin(filler, hex);
+		else
+			hex = ft_strjoin(hex, filler);
+		free (filler);
+	}
 	*(*(count)) += ft_strlen(hex);
 	ft_putstr_fd(hex, 1);
 	str++;
