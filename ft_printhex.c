@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:11:05 by bazuara           #+#    #+#             */
-/*   Updated: 2020/03/02 18:57:00 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/03/03 13:03:13 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ char		*ft_uitohex(unsigned int q)
 
 	i = 0;
 	str = ft_calloc(50, sizeof(char));
+	if (q == 0)
+		*str = '0';
 	while (q != 0)
 	{
 		r = q % 16;
@@ -79,7 +81,7 @@ const char	*ft_printhex(const char *str, va_list args, int **count,
 	(void)flags;
 	i = va_arg(args, long int);
 	abs = (i < 0) ? -i : i;
-	ft_putstr_fd(ft_uitohex(i), 1);
+	//ft_putstr_fd(ft_uitohex(i), 1);
 	hex = ft_strjoin("", ft_strrev(ft_uitohex(i)));
 	*(*(count)) += ft_strlen(hex);
 	ft_putstr_fd(hex, 1);
