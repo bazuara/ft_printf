@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 11:49:01 by bazuara           #+#    #+#             */
-/*   Updated: 2020/03/04 13:27:13 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/03/04 16:46:32 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,12 @@ const char		*ft_checkflags_sym(const char *str, va_list args, t_flags *flags)
 	{
 		i = va_arg(args, int);
 		if (i < 0)
-		{
-			flags->precission = -i;
-			flags->is_minus = 1;
-		}
+			flags->has_precission = 0;
 		else
+		{
 			flags->precission = i;
-		flags->is_point = 1;
-		flags->has_precission = 1;
+			flags->has_precission = 1;
+		}
 		flags->is_zero = 0;
 		str++;
 	}
@@ -70,6 +68,7 @@ const char		*ft_checkflags_sym(const char *str, va_list args, t_flags *flags)
 		{
 			flags->width = -i;
 			flags->is_minus = 1;
+			flags->is_zero = 0;
 		}
 		else
 			flags->width = i;

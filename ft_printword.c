@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 15:09:53 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/26 12:16:51 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/03/04 13:59:56 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,17 +76,17 @@ int	ft_printword(char *word, t_flags **flags, int count)
 	if (word != NULL && *word == '\0')
 		count += ft_print_n_null(0, (*flags)->width, (*flags)->is_minus);
 	else if (!word || word == NULL || *word == '\0')
-		if ((*flags)->precission > 0 && (*flags)->is_point == 0)
+		if ((*flags)->precission > 0 && (*flags)->has_precission == 0)
 			count += ft_print_n_null((*flags)->precission, 0, 0);
-		else if ((*flags)->precission > 0 && (*flags)->is_point == 1)
+		else if ((*flags)->precission > 0 && (*flags)->has_precission == 1)
 			count += ft_print_n_null((*flags)->precission, (*flags)->width
 					- max_6((*flags)->precission), (*flags)->is_minus);
-		else if ((*flags)->precission == 0 && (*flags)->is_point == 1)
+		else if ((*flags)->precission == 0 && (*flags)->has_precission == 1)
 			count += ft_putnchar(' ', (*flags)->width);
 		else
 			count += ft_print_n_null(7, (*flags)->width - 6,
 					(*flags)->is_minus);
-	else if ((*flags)->precission == 0 && (*flags)->is_point == 0)
+	else if ((*flags)->precission == 0 && (*flags)->has_precission == 0)
 		count += ft_putstr_len(word);
 	else if ((*flags)->precission != 0)
 		while (i < (*flags)->precission && word[i] != '\0')
