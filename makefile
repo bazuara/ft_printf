@@ -6,7 +6,7 @@
 #    By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/07 03:11:01 by bazuara           #+#    #+#              #
-#    Updated: 2020/03/03 15:35:02 by bazuara          ###   ########.fr        #
+#    Updated: 2020/03/04 13:40:43 by bazuara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,11 +107,15 @@ re: fclean all
 
 test: fclean 
 	@clear
+	@echo "enabling debug\n"
+	@sed -i '' 's/debug = 0/debug = 1/g' ft_printf.c
 	@echo "Testing..."
 	gcc *.c ./src/lib/*.c
 	@echo "\ntest result:"
 	@./a.out
 	@echo "\n"
+	@echo "disabling debug\n"
+	@sed -i '' 's/debug = 1/debug = 0/g' ft_printf.c
 
 
 # Rules that are not linked with a filename should be listed here

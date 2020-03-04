@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 11:49:01 by bazuara           #+#    #+#             */
-/*   Updated: 2020/03/03 18:50:47 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/03/04 13:27:13 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,13 @@ int			ft_isnum(int c)
 const char		*ft_checkflags_sym(const char *str, va_list args, t_flags *flags)
 {
 	int i;
-
+/*
+	ft_putstr_fd("DEBUG current char: ", 1);
+	ft_putchar_fd(*str, 1);
+	ft_putstr_fd("DEBUG next char: ", 1);
+	ft_putchar_fd(*(str + 1), 1);
+	ft_putchar_fd('\n', 1);
+*/
 	if (*str == '0')
 	{
 		if (ft_isflag((char *)str - 1) == 0)
@@ -42,9 +48,23 @@ const char		*ft_checkflags_sym(const char *str, va_list args, t_flags *flags)
 		flags->is_plus = 1;
 	else if (*str == ' ')
 		flags->is_space = 1;
+	else if (*str == '.' && *(str + 1) == '*')
+	{
+		i = va_arg(args, int);
+		if (i < 0)
+		{
+			flags->precission = -i;
+			flags->is_minus = 1;
+		}
+		else
+			flags->precission = i;
+		flags->is_point = 1;
+		flags->has_precission = 1;
+		flags->is_zero = 0;
+		str++;
+	}
 	else if (*str == '*')
 	{
-		//flags->is_asterisk = 1;
 		i = va_arg(args, int);
 		if (i < 0)
 		{
@@ -53,6 +73,8 @@ const char		*ft_checkflags_sym(const char *str, va_list args, t_flags *flags)
 		}
 		else
 			flags->width = i;
+		flags->is_num = 1;
+		flags->has_width = 1;
 	}
 	str++;
 	return (str);

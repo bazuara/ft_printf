@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2020/03/03 18:45:46 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/03/04 13:32:20 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ static void	print_struct(t_flags *flags)
 	ft_putchar_fd('\n', 1);
 	ft_putchar_fd('\n', 1);
 	ft_putstr_fd("result:",1);
-	
-	
+
+
 }
 
 static void	initialize_struct(t_flags *flags)
@@ -93,6 +93,7 @@ char		*ft_print_variable(char *str, va_list args, int *count,
 int			ft_isflag(char *str)
 {
 	if (*str == '-' || *str == '+' || *str == ' ' ||
+		(*str =='.' && *(str + 1) == '*') ||
 		(*str == '0') || *str == '#' || *str == '*')
 		return (1);
 	return (0);
