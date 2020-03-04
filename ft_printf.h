@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 15:42:46 by bazuara           #+#    #+#             */
-/*   Updated: 2020/03/03 18:46:31 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/03/04 17:05:18 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdio.h>
 # include <stdarg.h>
+# include <limits.h>
 # include "src/lib/libft.h"
 
 typedef	struct	s_flags

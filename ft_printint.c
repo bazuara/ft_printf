@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 15:37:39 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/27 13:51:00 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/03/04 17:12:49 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ const char	*ft_printint(const char *str, va_list args, int **count,
 		if (*num == '0' && (*flags)->width == ft_strlen(num))
 			*num = '-';
 		else 
-			num = ft_strjoin("-", num);
+			if (*num != '-')
+				num = ft_strjoin("-", num);
 	}
 	//aplicar espacios
 	//ft_putstr_fd("debug ft_strlen(num):", 1);
