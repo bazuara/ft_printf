@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2020/03/04 13:32:20 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/03/10 10:14:30 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,7 @@ char		*ft_print_variable(char *str, va_list args, int *count,
 	else if (*str == 's')
 		str = (char *)ft_printstring(str, args, &count, &flags);
 	else if (*str == 'p')
-		//str = (char *)ft_printpointer(str, args, &count, &flags);
-		ft_putstr_fd("Todo: pointer", 1);
+		str = (char *)ft_printpointer(str, args, &count, &flags);
 	else if (*str == 'u')
 		str = (char *)ft_printuint(str, args, &count, &flags);
 	else if (*str == 'x' || *str == 'X')
