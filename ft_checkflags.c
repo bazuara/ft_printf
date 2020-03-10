@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 11:49:01 by bazuara           #+#    #+#             */
-/*   Updated: 2020/03/04 16:46:32 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/03/10 10:39:15 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,19 @@ size_t			ft_intlen(size_t n)
 	else
 		return (ft_intlen(n / 10) + 1);
 }
-int			ft_isnum(int c)
+
+int				ft_isnum(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }
 
-const char		*ft_checkflags_sym(const char *str, va_list args, t_flags *flags)
+const char		*ft_checkflags_sym(const char *str, va_list args,
+				t_flags *flags)
 {
 	int i;
-/*
-	ft_putstr_fd("DEBUG current char: ", 1);
-	ft_putchar_fd(*str, 1);
-	ft_putstr_fd("DEBUG next char: ", 1);
-	ft_putchar_fd(*(str + 1), 1);
-	ft_putchar_fd('\n', 1);
-*/
+
 	if (*str == '0')
 	{
 		if (ft_isflag((char *)str - 1) == 0)
@@ -95,11 +91,9 @@ const char		*ft_checkflags_num(const char *str, t_flags *flags)
 		str++;
 		if (ft_isdigit(*str) == 1)
 		{
-			//check how to skip zeroes
 			flags->precission = ft_atoi(str);
 			while (*str >= '0' && *str <= '9')
 				str++;
-		//	str += ft_strlen(ft_itoa(ft_atoi(str)));
 		}
 		flags->is_zero = 0;
 	}

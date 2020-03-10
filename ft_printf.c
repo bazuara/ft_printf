@@ -6,53 +6,11 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2020/03/10 10:14:30 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/03/10 10:47:21 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static void	print_struct(t_flags *flags)
-{
-	ft_putchar_fd('\n', 1);
-	ft_putstr_fd("-----DEBBUG------\n", 1);
-	ft_putstr_fd("is_minus: ", 1);
-	ft_putnbr_fd(flags->is_minus, 1);
-	ft_putchar_fd('\n', 1);
-	ft_putstr_fd("is_plus: ", 1);
-	ft_putnbr_fd(flags->is_plus, 1);
-	ft_putchar_fd('\n', 1);
-	ft_putstr_fd("is_zero: ", 1);
-	ft_putnbr_fd(flags->is_zero, 1);
-	ft_putchar_fd('\n', 1);
-	ft_putstr_fd("is_num: ", 1);
-	ft_putnbr_fd(flags->is_num, 1);
-	ft_putchar_fd('\n', 1);
-	ft_putstr_fd("is_point: ", 1);
-	ft_putnbr_fd(flags->is_point, 1);
-	ft_putchar_fd('\n', 1);
-	ft_putstr_fd("is_asterisk: ", 1);
-	ft_putnbr_fd(flags->is_asterisk, 1);
-	ft_putchar_fd('\n', 1);
-	ft_putstr_fd("has_precission: ", 1);
-	ft_putnbr_fd(flags->has_precission, 1);
-	ft_putchar_fd('\n', 1);
-	ft_putstr_fd("precission: ", 1);
-	ft_putnbr_fd(flags->precission, 1);
-	ft_putchar_fd('\n', 1);
-	ft_putstr_fd("has_width: ", 1);
-	ft_putnbr_fd(flags->has_width, 1);
-	ft_putchar_fd('\n', 1);
-	ft_putstr_fd("width: ", 1);
-	ft_putnbr_fd(flags->width, 1);
-	ft_putchar_fd('\n', 1);
-	ft_putstr_fd("---END-DEBBUG----\n", 1);
-	ft_putchar_fd('\n', 1);
-	ft_putchar_fd('\n', 1);
-	ft_putstr_fd("result:",1);
-
-
-}
 
 static void	initialize_struct(t_flags *flags)
 {
@@ -92,7 +50,7 @@ char		*ft_print_variable(char *str, va_list args, int *count,
 int			ft_isflag(char *str)
 {
 	if (*str == '-' || *str == '+' || *str == ' ' ||
-		(*str =='.' && *(str + 1) == '*') ||
+		(*str == '.' && *(str + 1) == '*') ||
 		(*str == '0') || *str == '#' || *str == '*')
 		return (1);
 	return (0);
@@ -103,13 +61,10 @@ int			ft_printf(const char *str, ...)
 	va_list	args;
 	int		count;
 	t_flags	flags;
-	int		debug;
 
-	debug = 0;
 	count = 0;
 	va_start(args, str);
 	while (str && *str != '\0')
-	{
 		if (*str == '%')
 		{
 			initialize_struct(&flags);
@@ -118,8 +73,6 @@ int			ft_printf(const char *str, ...)
 				str = (char *)ft_checkflags_sym((char *)str, args, &flags);
 			if (*str == '.' || (*str >= '0' && *str <= '9'))
 				str = (char *)ft_checkflags_num((char *)str, &flags);
-			if (debug == 1)
-				print_struct(&flags);
 			str = (char *)ft_print_variable((char *)str, args, &count, &flags);
 		}
 		else
@@ -128,7 +81,6 @@ int			ft_printf(const char *str, ...)
 			str++;
 			count++;
 		}
-	}
 	va_end(args);
 	return (count);
 }

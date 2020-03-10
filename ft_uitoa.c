@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 11:13:18 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/27 11:54:51 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/03/10 12:54:42 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		ft_uintlength(unsigned long long int n)
 	if (n < 10)
 		return (1);
 	else
-		return (ft_uintlength(n/10) + 1);
+		return (ft_uintlength(n / 10) + 1);
 }
 
 char	*ft_uitoa(unsigned long long int n)

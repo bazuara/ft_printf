@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 11:05:30 by bazuara           #+#    #+#             */
-/*   Updated: 2020/02/24 15:31:58 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/03/10 13:50:07 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ const char	*ft_printstring(const char *str, va_list args, int **count,
 			(c != NULL && *c != '\0'))
 		(*(*count)) = ft_prespace((&(*flags)), ft_strlen(c), *(*(count)), ' ');
 	str++;
+	//TODO
 	return (str);
 }

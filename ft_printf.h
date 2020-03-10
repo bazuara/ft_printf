@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 15:42:46 by bazuara           #+#    #+#             */
-/*   Updated: 2020/03/10 10:28:21 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/03/10 15:57:42 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 
 # include <stdio.h>
+# include <stdlib.h>
 # include <stdarg.h>
 # include <limits.h>
 # include "src/lib/libft.h"
@@ -52,7 +53,7 @@ int				ft_printword(char *str, t_flags **flags, int count);
 char			*ft_long_itoa(long int nbr);
 char			ft_numtohex(int n);
 char			*ft_strrev(char *str);
-char			*ft_uitohex(unsigned long int q);
+char			*ft_uitohex(long int q);
 const char		*ft_printuint(const char *str,va_list args, int **count,
 				t_flags **flags);
 const char		*ft_printhex(const char *str,va_list args, int **count,
@@ -61,6 +62,7 @@ const char		*ft_printpointer(const char *str,va_list args, int **count,
 				t_flags **flags);
 int				ft_isflag(char *str);
 int				max_int(int a, int b);
+void			ft_free(int i, ...);
 
 
 #endif
