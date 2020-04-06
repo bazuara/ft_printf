@@ -27,8 +27,7 @@ SOURCE = ft_printf.c \
 		 ft_uitoa.c \
 		 ft_strtoupper.c \
 		 ft_printhex.c \
-		 ft_printpointer.c \
-		 ft_free.c
+		 ft_printpointer.c
 
 OBJFOLDER = src/lib/
 
@@ -112,7 +111,7 @@ test: fclean
 	@echo "enabling debug\n"
 	@sed -i '' 's/debug = 0/debug = 1/g' ft_printf.c
 	@echo "Testing...\n"
-	@gcc *.c ./src/lib/*.c
+	@gcc -g  *.c ./src/lib/*.c
 	@echo "\ntest result:"
 	@./a.out
 	@echo "\n"

@@ -53,7 +53,7 @@ int				ft_printword(char *str, t_flags **flags, int count);
 char			*ft_long_itoa(long int nbr);
 char			ft_numtohex(int n);
 char			*ft_strrev(char *str);
-char			*ft_uitohex(long int q);
+char			*ft_uitohex(long long int q);
 const char		*ft_printuint(const char *str,va_list args, int **count,
 				t_flags **flags);
 const char		*ft_printhex(const char *str,va_list args, int **count,
@@ -62,7 +62,5 @@ const char		*ft_printpointer(const char *str,va_list args, int **count,
 				t_flags **flags);
 int				ft_isflag(char *str);
 int				max_int(int a, int b);
-void			ft_free(int i, ...);
-
 
 #endif

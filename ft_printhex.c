@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:11:05 by bazuara           #+#    #+#             */
-/*   Updated: 2020/03/10 16:05:05 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/03/31 19:55:20 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char		*ft_strrev(char *str)
 
 	c = ft_strlen(str);
 	i = 0;
-	while (i <= (c / 2))
+	while (i < c)
 	{
 		temp = str[i];
 		str[i] = str[c - 1];
@@ -50,7 +50,7 @@ char		*ft_strrev(char *str)
 	return (str);
 }
 
-char		*ft_uitohex(long int q)
+char		*ft_uitohex(long long int q)
 {
 	char	*str;
 	int		r;
@@ -59,40 +59,41 @@ char		*ft_uitohex(long int q)
 	i = 0;
 	str = ft_calloc(50, sizeof(char));
 	if (q == 0)
-		*str = '0';
+		str[i] = '0';
 	while (q != 0)
 	{
 		r = q % 16;
 		q /= 16;
-		*str = (ft_numtohex(r));
-		str++;
+		str[i] = (ft_numtohex(r));
 		i++;
 	}
-	return (str - i);
+	ft_strrev(str);
+	return (str);
 }
 
 const char	*ft_printhex(const char *str, va_list args, int **count,
 		t_flags **flags)
 {
-	long int		i;
-	unsigned int	abs;
+	long long int		i;
 	char			*hex;
 	char			*filler;
+	char			*temp;
 
-	i = va_arg(args, long int);
-	abs = (i < 0) ? -i : i;
+	i = va_arg(args, long long int);
 	if ((((*flags)->has_precission == 1 && (*flags)->precission == 0) ||
 				((*flags)->has_width == 1 && (*flags)->width == 0)) && (i == 0))
 		hex = ft_strjoin("", "");
 	else
-		hex = ft_strjoin("", ft_strrev(ft_uitohex(i)));
+		hex = ft_uitohex(i);
 		//aplicar precission
 	if ((*flags)->precission >= ft_strlen(hex) && (*flags)->precission > 0)
 	{
 		filler = ft_calloc((*flags)->precission - ft_strlen(hex) +
 				1, sizeof(char));
 		ft_memset(filler, '0', (*flags)->precission - ft_strlen(hex));
-		hex = ft_strjoin(filler, hex);
+		temp = hex;
+		hex = ft_strjoin(filler, temp);
+		free(temp);
 		free(filler);
 	}
 	//aplicar width
@@ -101,16 +102,19 @@ const char	*ft_printhex(const char *str, va_list args, int **count,
 		filler = ft_calloc((*flags)->width - ft_strlen(hex) + 1, sizeof(char));
 		ft_memset(filler, ((*flags)->is_zero == 1 ? '0' : ' '), (*flags)->width -
 				ft_strlen(hex));
+		temp = hex;
 		if ((*flags)->is_minus == 0)
-			hex = ft_strjoin(filler, hex);
+			hex = ft_strjoin(filler, temp);
 		else
-			hex = ft_strjoin(hex, filler);
+			hex = ft_strjoin(temp, filler);
+		free(temp);
 		free(filler);
 	}
 	if (*str == 'X')
 		hex = ft_strtoupper(hex);
 	*(*(count)) += ft_strlen(hex);
 	ft_putstr_fd(hex, 1);
+	free(hex);
 	str++;
 	return (str);
 }

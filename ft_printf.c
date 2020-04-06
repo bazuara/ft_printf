@@ -82,5 +82,6 @@ int			ft_printf(const char *str, ...)
 			count++;
 		}
 	va_end(args);
+	//free(args);
 	return (count);
 }

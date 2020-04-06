@@ -82,7 +82,7 @@ const char		*ft_checkflags_num(const char *str, t_flags *flags)
 		flags->is_num = 1;
 		flags->width = ft_atoi(str);
 		flags->has_width = 1;
-		str += ft_strlen(ft_itoa(ft_atoi(str)));
+		str += ft_intlen(flags->width);
 	}
 	if (*str == '.')
 	{
