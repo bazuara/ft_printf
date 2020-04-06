@@ -2,4 +2,5 @@ main.c
 pft/
 libftprintf.a
 a.out
+a.out.*
 pft_2019/
