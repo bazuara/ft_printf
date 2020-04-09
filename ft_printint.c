@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 15:37:39 by bazuara           #+#    #+#             */
-/*   Updated: 2020/03/10 13:24:09 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/04/09 14:53:56 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ const char	*ft_printint(const char *str, va_list args, int **count,
 	if (i == 0 && (*flags)->precission == 0 && (*flags)->has_precission == 1)
 		num = ft_strjoin("", "");
 	else
-		//leaks en num
 		num = ft_itoa(abs);
 		//aplicar ceros de precission
 	if ((*flags)->precission >= ft_strlen(num) && (*flags)->precission > 0)
