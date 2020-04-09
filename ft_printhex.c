@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:11:05 by bazuara           #+#    #+#             */
-/*   Updated: 2020/03/31 19:55:20 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/04/09 15:13:49 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ const char	*ft_printhex(const char *str, va_list args, int **count,
 		hex = ft_strjoin("", "");
 	else
 		hex = ft_uitohex(i);
-		//aplicar precission
+		//aplicar  precission
 	if ((*flags)->precission >= ft_strlen(hex) && (*flags)->precission > 0)
 	{
 		filler = ft_calloc((*flags)->precission - ft_strlen(hex) +
