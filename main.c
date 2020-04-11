@@ -1,5 +1,8 @@
+/* main test to ft_printf leaks*/
+
 #include "ft_printf.h"
 #include <stdio.h>
+
 int main(void) {
 	static char *str = "hola";
 	static int r00 = 0;
