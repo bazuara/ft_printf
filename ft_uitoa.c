@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 11:13:18 by bazuara           #+#    #+#             */
-/*   Updated: 2020/03/10 12:54:42 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/04/12 23:49:37 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ char	*ft_uitoa(unsigned long long int n)
 	int		len;
 
 	len = ft_uintlength(n);
-
 	str = ft_calloc(len + 1, sizeof(char));
 	if (len == 0)
 		return (0);
