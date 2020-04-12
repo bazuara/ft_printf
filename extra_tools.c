@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   extra_tools.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bazuara <bazuara@student.42madrid.co       +#+  +:+       +#+        */
+/*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/12 20:25:07 by bazuara           #+#    #+#             */
-/*   Updated: 2020/04/12 20:40:51 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/04/12 21:09:08 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,3 @@ char		*ft_strjoin_free(char *str1, char *str2, int i)
 	}
 	return (temp);
 }
-
