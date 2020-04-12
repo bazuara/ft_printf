@@ -6,13 +6,13 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:11:05 by bazuara           #+#    #+#             */
-/*   Updated: 2020/04/12 22:55:15 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/04/12 23:23:49 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char		*applyprecission(char *hex, t_flags **flags)
+char		*applyprecission_pointer(char *hex, t_flags **flags)
 {
 	char	*filler;
 
@@ -27,7 +27,7 @@ char		*applyprecission(char *hex, t_flags **flags)
 	return (hex);
 }
 
-char		*applywidth(char *hex, t_flags **flags)
+char		*applywidth_pointer(char *hex, t_flags **flags)
 {
 	char	*filler;
 
@@ -58,8 +58,8 @@ const char	*ft_printpointer(const char *str, va_list args, int **count,
 		hex = ft_strjoin("", "");
 	else
 		hex = ft_uitohex(i);
-	hex = applyprecission(hex, flags);
-	hex = applywidth(hex, flags);
+	hex = applyprecission_pointer(hex, flags);
+	hex = applywidth_pointer(hex, flags);
 	*(*(count)) += ft_strlen(hex);
 	ft_putstr_fd(hex, 1);
 	free(hex);
