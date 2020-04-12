@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:13:03 by bazuara           #+#    #+#             */
-/*   Updated: 2020/03/10 10:47:21 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/04/12 22:33:13 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,5 @@ int			ft_printf(const char *str, ...)
 			count++;
 		}
 	va_end(args);
-	//free(args);
 	return (count);
 }
