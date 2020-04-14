@@ -6,13 +6,13 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/12 22:58:06 by bazuara           #+#    #+#             */
-/*   Updated: 2020/04/12 22:59:47 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/04/14 17:55:02 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char		ft_numtohex(int n)
+char		ft_numtohex(unsigned int n)
 {
 	if (n >= 0 && n <= 9)
 		return (n + '0');
@@ -50,11 +50,32 @@ char		*ft_strrev(char *str)
 	return (str);
 }
 
-char		*ft_uitohex(long long int q)
+char		*ft_uitohex(unsigned int q)
 {
-	char	*str;
-	int		r;
-	int		i;
+	char			*str;
+	unsigned int	r;
+	int				i;
+
+	i = 0;
+	str = ft_calloc(50, sizeof(char));
+	if (q == 0)
+		str[i] = '0';
+	while (q != 0)
+	{
+		r = q % 16;
+		q /= 16;
+		str[i] = (ft_numtohex(r));
+		i++;
+	}
+	ft_strrev(str);
+	return (str);
+}
+
+char		*ft_ultohex(unsigned long q)
+{
+	char			*str;
+	unsigned long	r;
+	int				i;
 
 	i = 0;
 	str = ft_calloc(50, sizeof(char));

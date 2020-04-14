@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:11:05 by bazuara           #+#    #+#             */
-/*   Updated: 2020/04/12 23:21:50 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/04/14 17:52:56 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ char		*applywidth_hex(char *hex, t_flags **flags)
 const char	*ft_printhex(const char *str, va_list args, int **count,
 		t_flags **flags)
 {
-	long long int	i;
+	unsigned int	i;
 	char			*hex;
 
-	i = va_arg(args, long long int);
+	i = va_arg(args, unsigned int);
 	if ((((*flags)->has_precission == 1 && (*flags)->precission == 0) ||
 			((*flags)->has_width == 1 && (*flags)->width == 0)) && (i == 0))
 		hex = ft_strjoin("", "");

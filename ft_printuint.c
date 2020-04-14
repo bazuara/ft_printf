@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 15:37:39 by bazuara           #+#    #+#             */
-/*   Updated: 2020/04/12 23:47:21 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/04/14 16:52:37 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char		*applyspaces_uint(char *num, t_flags **flags)
 const char	*ft_printuint(const char *str, va_list args, int **count,
 		t_flags **flags)
 {
-	long int				i;
+	unsigned int			i;
 	unsigned long long	int abs;
 	char					*num;
 
@@ -94,5 +94,6 @@ const char	*ft_printuint(const char *str, va_list args, int **count,
 	(*(*count)) += ft_strlen(num);
 	str++;
 	free(num);
+	va_end(args);
 	return (str);
 }

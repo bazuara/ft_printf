@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 10:11:05 by bazuara           #+#    #+#             */
-/*   Updated: 2020/04/12 23:23:49 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/04/14 17:54:22 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,15 @@ char		*applywidth_pointer(char *hex, t_flags **flags)
 const char	*ft_printpointer(const char *str, va_list args, int **count,
 		t_flags **flags)
 {
-	long int		i;
-	unsigned int	abs;
+	unsigned long	i;
 	char			*hex;
 
-	i = va_arg(args, long int);
-	abs = (i < 0) ? -i : i;
+	i = va_arg(args, unsigned long);
 	if ((((*flags)->has_precission == 1 && (*flags)->precission == 0) ||
 				((*flags)->has_width == 1 && (*flags)->width == 0)) && (i == 0))
 		hex = ft_strjoin("", "");
 	else
-		hex = ft_uitohex(i);
+		hex = ft_ultohex(i);
 	hex = applyprecission_pointer(hex, flags);
 	hex = applywidth_pointer(hex, flags);
 	*(*(count)) += ft_strlen(hex);
