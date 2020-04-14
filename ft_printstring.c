@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 11:05:30 by bazuara           #+#    #+#             */
-/*   Updated: 2020/04/12 23:50:13 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/04/14 19:00:42 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ const char	*ft_printstring(const char *str, va_list args, int **count,
 	c = va_arg(args, char*);
 	if ((*flags)->is_minus == 0 && (*flags)->width > 0 &&
 			(c != NULL && *c != '\0'))
-		(*(*count)) = ft_prespace((&(*flags)), ft_strlen(c), *(*(count)), ' ');
+		(*(*count)) = ft_prespace((&(*flags)), ft_strlen(c), *(*(count)),
+				((*flags)->is_zero == 0 ? ' ' : '0'));
 	(*(*count)) = ft_printword(c, &(*flags), (*(*count)));
 	if ((*flags)->is_minus == 1 && (*flags)->width > 0 &&
 			(c != NULL && *c != '\0'))

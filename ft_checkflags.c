@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 11:49:01 by bazuara           #+#    #+#             */
-/*   Updated: 2020/04/12 22:30:18 by bazuara          ###   ########.fr       */
+/*   Updated: 2020/04/14 18:59:27 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ const char		*ft_checkflags_num(const char *str, t_flags *flags)
 {
 	if (ft_isdigit(*str) == 1)
 	{
+		while (*str == '0' && ft_isdigit(*str) == 1)
+			str++;
 		flags->is_num = 1;
 		flags->width = ft_atoi(str);
 		flags->has_width = 1;
